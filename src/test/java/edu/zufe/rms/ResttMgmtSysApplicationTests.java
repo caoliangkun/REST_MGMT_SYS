@@ -1,4 +1,4 @@
-package edu.zufe.restt_mgmt_sys;
+package edu.zufe.rms;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
