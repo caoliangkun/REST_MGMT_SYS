@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -43,8 +44,10 @@ public class StaffProfile implements Serializable {
 	private String gender;
 
 	private String email;
-
-//	private Address address;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id")
+	private Address address;
 
 	@OneToMany(mappedBy = "leader")
 	private Set<StaffProfile> staff = new HashSet<>();

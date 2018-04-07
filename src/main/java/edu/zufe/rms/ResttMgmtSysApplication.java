@@ -12,6 +12,6 @@ public class ResttMgmtSysApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ResttMgmtSysApplication.class, args);
 
-	}
+	} 
 
 }
