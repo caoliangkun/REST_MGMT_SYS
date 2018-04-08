@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import edu.zufe.rms.model.User;
+import edu.zufe.rms.domain.model.User;
 import edu.zufe.rms.service.UserService;
 
 @Controller

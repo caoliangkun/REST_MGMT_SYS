@@ -1,4 +1,4 @@
-package edu.zufe.rms.model;
+package edu.zufe.rms.domain.model;
 
 import java.io.Serializable;
 
