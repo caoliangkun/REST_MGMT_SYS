@@ -15,4 +15,19 @@ public class UserService {
 		User user = new User(name, password, phone);
 		return userRepository.save(user);
 	}
+	
+	public Iterable<User> findAll() {
+		Iterable<User> users;
+		users =  userRepository.findAll();
+		return users;
+	}
+
+	public User findByAccount(String account) {
+		for (User user: userRepository.findAll()) {
+			if (user.getPhone().equals(account)) {
+				return user;
+			}
+		}
+		return null;
+	}
 }
