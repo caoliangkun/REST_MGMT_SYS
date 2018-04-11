@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>find all users</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form method="get">
+		<table style="bordercolor: blue">
+			<thead>
+				<tr>
+					<td>name</td>
+					<td>phone</td>
+					<td>action</td>
+				</tr>
+			</thead>
+			<tbody th:each="user : ${users}">
+
+				<tr>
+					<td th:text="${user.name}"></td>
+					<td th:text="${user.phone}"></td>
+					<td><button  class="btn btn-primary" type="submit" formmethod="/user/delete">delete</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

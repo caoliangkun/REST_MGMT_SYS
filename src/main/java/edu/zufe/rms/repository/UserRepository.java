@@ -1,8 +1,8 @@
-package edu.zufe.rms.service.repository;
+package edu.zufe.rms.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import edu.zufe.rms.domain.model.User;
+import edu.zufe.rms.model.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 	

@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import edu.zufe.rms.domain.model.StaffProfile;
-import edu.zufe.rms.service.repository.StaffProfileRepository;
+import edu.zufe.rms.model.StaffProfile;
+import edu.zufe.rms.repository.StaffProfileRepository;
 
 @Service
 public class StaffProfileService {

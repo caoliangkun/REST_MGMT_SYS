@@ -1,4 +1,4 @@
-package edu.zufe.rms.domain.enums;
+package edu.zufe.rms.enums;
 
 public enum Position {
 	GUEST,

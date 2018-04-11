@@ -1,4 +1,4 @@
-package edu.zufe.rms.web.controller;
+package edu.zufe.rms.controller;
 
 public class StaffProfileController {
 

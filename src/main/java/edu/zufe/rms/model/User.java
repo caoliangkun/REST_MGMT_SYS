@@ -1,4 +1,4 @@
-package edu.zufe.rms.domain.model;
+package edu.zufe.rms.model;
 
 import java.io.Serializable;
 
@@ -20,7 +20,7 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "user_generator", sequenceName = "user_sequence")
+	@SequenceGenerator(name = "user_generator", sequenceName = "user_sequence", allocationSize = 1)
 	@GeneratedValue(generator = "user_generator")
 	@Column(name = "user_id")
 	private Long id;

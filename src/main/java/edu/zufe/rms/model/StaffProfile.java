@@ -1,4 +1,4 @@
-package edu.zufe.rms.domain.model;
+package edu.zufe.rms.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,7 +20,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import edu.zufe.rms.domain.enums.Position;
+import edu.zufe.rms.enums.Position;
 
 @Entity
 public class StaffProfile implements Serializable {

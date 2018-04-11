@@ -1,4 +1,4 @@
-package edu.zufe.rms.web.controller;
+package edu.zufe.rms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.zufe.rms.domain.model.User;
+import edu.zufe.rms.model.User;
 import edu.zufe.rms.service.LoginService;
 import edu.zufe.rms.service.UserService;
 
@@ -27,7 +27,7 @@ public class MainController {
 		return "welcome";
 	}
 	
-	// Now use the user's name and password for logging in
+	// Uses the user phone account and password for logging in
 	@GetMapping(path = "/login")
 	public String login(@RequestParam(name = "account") String account, @RequestParam(name = "password") String password, Model model) {
 		if (loginService.login(account, password)) {
@@ -39,5 +39,10 @@ public class MainController {
 		} else {
 			return null;
 		}
+	}
+	
+	@GetMapping(path = "signup")
+	public String signup() {
+		return "signup";
 	}
 }
