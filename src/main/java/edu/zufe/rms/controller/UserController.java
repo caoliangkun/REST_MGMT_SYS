@@ -35,8 +35,8 @@ public class UserController {
 	}
 	
 	@GetMapping(path = "/delete")
-	public String deleteByPhone(@RequestParam(name = "phone") String phone) {
+	public String deleteByPhone(@RequestParam(name = "phone"	) String phone) {
 		userService.deleteByPhone(phone);
-		return "allusers";
+		return "redirect:/user/findall";
 	}
 }

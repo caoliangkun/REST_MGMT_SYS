@@ -18,8 +18,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form method="get">
-		<table style="bordercolor: blue">
+	
+		<table class = "table">
 			<thead>
 				<tr>
 					<td>name</td>
@@ -27,15 +27,14 @@
 					<td>action</td>
 				</tr>
 			</thead>
-			<tbody th:each="user : ${users}">
-
-				<tr>
+			<tbody >
+				<tr th:each="user : ${users}">
 					<td th:text="${user.name}"></td>
 					<td th:text="${user.phone}"></td>
-					<td><button  class="btn btn-primary" type="submit" formmethod="/user/delete">delete</button></td>
+					<td><form action="/user/delete" method="get"><input name="phone" type="hidden" th:value="${user.phone}" ><input class="btn btn-primary" type="submit" value="delete"></form></td>
 				</tr>
 			</tbody>
 		</table>
-	</form>
+	
 </body>
 </html>

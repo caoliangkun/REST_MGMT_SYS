@@ -1,6 +1,7 @@
 package edu.zufe.rms.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,13 +35,18 @@ public class User implements Serializable {
 	private String name;
 	@Column(nullable = false)
 	private String password;
-	
-	@OneToOne(fetch = FetchType.LAZY,
-			cascade = CascadeType.ALL,
-			mappedBy = "user")
+
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private StaffProfile profile;
-	
-	protected User() {}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+	private Set<Food> foods;
+
+	@ManyToMany(mappedBy = "waiters")
+	private Set<Order> orders;
+
+	protected User() {
+	}
 
 	public User(String name, String password, String phone) {
 		super();
@@ -44,7 +54,7 @@ public class User implements Serializable {
 		this.password = password;
 		this.phone = phone;
 	}
-	
+
 	public User(String name, String password) {
 		this.name = name;
 		this.password = password;
@@ -81,6 +91,5 @@ public class User implements Serializable {
 	public String toString() {
 		return getName() + ", " + getPassword();
 	}
-	
-	
+
 }

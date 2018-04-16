@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Food list</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Food list</h1>
+	
+	<table class = "table">
+			<thead>
+				<tr>
+					<td>id</td>
+					<td>name</td>
+					<td>price</td>
+					<td>dish_type</td>
+					<td>applyed</td>
+					<td>added_date</td>
+					<td>added_by</td>
+					<td>image</td>
+					<td>rating</td>
+					<td>action</td>
+				</tr>
+			</thead>
+			<tbody >
+				<tr th:each="food : ${foods}">
+					<td th:text="${food.id}"></td>
+					<td th:text="${food.name}"></td>
+					<td th:text="${food.price}"></td>
+					<td th:text="${food.applyed}"></td>
+					<td th:text="${food.lastUpdatedAt}"></td>
+					<td th:text="${food.user}?:''"></td>
+					<td><img th:src="@{food.image}"/></td>
+					<td th:text="${food.rating}"></td>
+					<td><form action="/food/delete" method="get"><input name="id" type="hidden" th:value="${food.id}" ><input class="btn btn-primary" type="submit" value="delete"></form></td>
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>

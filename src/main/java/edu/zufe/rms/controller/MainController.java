@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.zufe.rms.model.User;
@@ -17,7 +18,7 @@ public class MainController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("/")
+	@GetMapping("/toLogin")
 	String toLogin() {
 		return "login";
 	}
@@ -28,7 +29,7 @@ public class MainController {
 	}
 	
 	// Uses the user phone account and password for logging in
-	@GetMapping(path = "/login")
+	@PostMapping(path = "/login")
 	public String login(@RequestParam(name = "account") String account, @RequestParam(name = "password") String password, Model model) {
 		if (loginService.login(account, password)) {
 			User user = userService.findByAccount(account);
