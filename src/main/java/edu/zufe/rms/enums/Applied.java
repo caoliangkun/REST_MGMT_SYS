@@ -1,6 +1,6 @@
 package edu.zufe.rms.enums;
 
-public enum Applyed {
+public enum Applied {
 	Y,
 	N;
 }

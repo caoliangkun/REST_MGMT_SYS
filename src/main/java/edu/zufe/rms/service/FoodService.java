@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.zufe.rms.enums.Applyed;
+import edu.zufe.rms.enums.Applied;
 import edu.zufe.rms.model.Food;
 import edu.zufe.rms.repository.FoodRepository;
 
@@ -26,5 +26,9 @@ public class FoodService {
 	public Food save(String name, double price) {
 		Food food = new Food(name, price);
 		return foodRepo.save(food);
+	}
+	
+	public void deleteFoodById(Long id) {
+		foodRepo.deleteById(id);
 	}
 }

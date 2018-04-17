@@ -31,7 +31,12 @@ public class FoodController {
 			foodService.save(name, price);
 		}
 		return "redirect:/food/foodlist";
-
+	}
+	
+	@GetMapping(path = "/delete")
+	public String deleteFoodById(@RequestParam(name = "food_id") Long id) {
+		foodService.deleteFoodById(id);
+		return "redirect:/food/foodlist";
 	}
 
 }

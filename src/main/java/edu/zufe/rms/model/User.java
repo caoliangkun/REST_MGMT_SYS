@@ -25,8 +25,7 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@SequenceGenerator(name = "user_generator", sequenceName = "user_sequence", allocationSize = 1)
-	@GeneratedValue(generator = "user_generator")
+	@GeneratedValue
 	@Column(name = "user_id")
 	private Long id;
 	@Column(length = 11, unique = true, nullable = false)
@@ -44,6 +43,12 @@ public class User implements Serializable {
 
 	@ManyToMany(mappedBy = "waiters")
 	private Set<Order> orders;
+	
+	@OneToMany(mappedBy = "waiter")
+	private Set<Dish> dishes;
+	
+	@OneToMany(mappedBy = "cashier")
+	private Set<Payment> payments;
 
 	protected User() {
 	}

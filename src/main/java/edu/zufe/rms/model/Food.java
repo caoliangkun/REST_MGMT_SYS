@@ -2,6 +2,7 @@ package edu.zufe.rms.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,10 +14,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import edu.zufe.rms.enums.Applyed;
+import edu.zufe.rms.enums.Applied;
 import edu.zufe.rms.enums.FoodType;
 import edu.zufe.rms.enums.Rating;
 
@@ -29,6 +32,7 @@ public class Food implements Serializable {
 
 	@Id
 	@GeneratedValue()
+	@Column(name = "food_id")
 	private Long id;
 
 	@Column(nullable = false, unique = true)
@@ -39,13 +43,15 @@ public class Food implements Serializable {
 
 	@Column()
 	@Enumerated(EnumType.STRING)
-	private Applyed applyed;
+	private Applied applied;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "last_update_at")
 	private Date lastUpdatedAt;
-
-	private String image;
+	
+	@OneToOne
+	@JoinColumn(name = "img_id")
+	private Image img;
 
 	@Enumerated(value = EnumType.STRING)
 	private Rating rating;
@@ -55,7 +61,10 @@ public class Food implements Serializable {
 	private User user;
 
 	@Enumerated(value = EnumType.STRING)
-	private FoodType dishType;
+	private FoodType foodType;
+	
+	@OneToMany(mappedBy = "food")
+	private Set<Dish> dishes;
 
 	public Food() {
 		super();
@@ -63,17 +72,15 @@ public class Food implements Serializable {
 
 
 
-	public Food(String name, Double price, Applyed applyed, Date lastUpdatedAt, String image, Rating rating, User user,
-			FoodType dishType) {
+	public Food(String name, Double price, Date lastUpdatedAt, Rating rating, User user,
+			FoodType foodType) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.applyed = applyed;
 		this.lastUpdatedAt = lastUpdatedAt;
-		this.image = image;
 		this.rating = rating;
 		this.user = user;
-		this.dishType = dishType;
+		this.foodType = foodType;
 	}
 
 
@@ -82,13 +89,6 @@ public class Food implements Serializable {
 		this.name = name;
 		this.price = price;
 	}
-
-
-
-	public Applyed getApplyed() {
-		return applyed;
-	}
-
 
 
 	public Long getId() {
@@ -115,13 +115,7 @@ public class Food implements Serializable {
 		this.price = price;
 	}
 
-	public Applyed isApplyed() {
-		return applyed;
-	}
 
-	public void setApplyed(Applyed applyed) {
-		this.applyed = applyed;
-	}
 
 	public Date getLastUpdatedAt() {
 		return lastUpdatedAt;
@@ -129,14 +123,6 @@ public class Food implements Serializable {
 
 	public void setLastUpdatedAt(Date lastUpdatedAt) {
 		this.lastUpdatedAt = lastUpdatedAt;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
 	}
 
 	public Rating getRating() {
@@ -155,12 +141,12 @@ public class Food implements Serializable {
 		this.user = user;
 	}
 
-	public FoodType getDishType() {
-		return dishType;
+	public FoodType getFoodType() {
+		return foodType;
 	}
 
-	public void setDishType(FoodType dishType) {
-		this.dishType = dishType;
+	public void setFoodType(FoodType foodType) {
+		this.foodType = foodType;
 	}
 
 	public static long getSerialversionuid() {

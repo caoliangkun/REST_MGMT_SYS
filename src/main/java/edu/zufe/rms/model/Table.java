@@ -27,4 +27,7 @@ public class Table implements Serializable {
 	
 	@OneToMany(mappedBy = "table")
 	private Set<Order> orders;
+	
+	@OneToMany(mappedBy = "table")
+	private Set<Dish> dishes;
 }

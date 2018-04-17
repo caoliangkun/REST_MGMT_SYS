@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -46,10 +47,13 @@ public class Order implements Serializable{
 	@ManyToMany
 	@JoinTable(name = "Order_User", 
 	joinColumns = { @JoinColumn(name = "order_id") }, 
-	inverseJoinColumns = {
-			@JoinColumn(name = "user_id") })
+	inverseJoinColumns = {@JoinColumn(name = "user_id") })
 	private Set<User> waiters;
+	
 	@ManyToOne
 	@JoinColumn(name = "table_id")
 	private edu.zufe.rms.model.Table table;
+	
+	@OneToMany(mappedBy = "order")
+	private Set<Dish> dishes;
 }

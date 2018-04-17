@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 public class Address {
 	@Id
 	@GeneratedValue
+	@Column(name = "address_id")
 	private Long id;
 
 	private String country;

@@ -1,5 +1,6 @@
 package edu.zufe.rms.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,7 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Customer {
+public class Customer implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	@Column(name = "customer_id")
@@ -29,5 +34,9 @@ public class Customer {
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Order> orders = new HashSet<>();
+	
+	@OneToMany(mappedBy = "customer")
+	private Set<Payment> payments;
+	
 	
 }

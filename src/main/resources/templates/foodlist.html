@@ -22,8 +22,8 @@
 					<td>id</td>
 					<td>name</td>
 					<td>price</td>
-					<td>dish_type</td>
-					<td>applyed</td>
+					<td>food_type</td>
+					<td>applied</td>
 					<td>added_date</td>
 					<td>added_by</td>
 					<td>image</td>
@@ -36,12 +36,13 @@
 					<td th:text="${food.id}"></td>
 					<td th:text="${food.name}"></td>
 					<td th:text="${food.price}"></td>
-					<td th:text="${food.applyed}"></td>
+					<td th:text="${food.foodType}"></td>
+					<td th:text="${food.applied}"></td>
 					<td th:text="${food.lastUpdatedAt}"></td>
 					<td th:text="${food.user}?:''"></td>
 					<td><img th:src="@{food.image}"/></td>
 					<td th:text="${food.rating}"></td>
-					<td><form action="/food/delete" method="get"><input name="id" type="hidden" th:value="${food.id}" ><input class="btn btn-primary" type="submit" value="delete"></form></td>
+					<td><form action="/food/delete" method="get"><input name="food_id" type="hidden" th:value="${food.id}" ><input class="btn btn-primary" type="submit" value="delete"></form></td>
 				</tr>
 			</tbody>
 		</table>
