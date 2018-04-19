@@ -64,7 +64,7 @@ public class Food implements Serializable {
 	private FoodType foodType;
 	
 	@OneToMany(mappedBy = "food")
-	private Set<Dish> dishes;
+	private Set<Selection> selections;
 
 	public Food() {
 		super();

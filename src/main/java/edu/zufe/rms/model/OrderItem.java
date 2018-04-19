@@ -8,23 +8,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import edu.zufe.rms.enums.DishStatus;
+import edu.zufe.rms.enums.OrderItemStatus;
 
 @Entity
-@javax.persistence.Table(name = "dish")
-public class Dish {
+public class OrderItem {
 	@Id
 	@GeneratedValue
-	@Column(name = "dish_id")
+	@Column(name = "order_item_id")
 	private Long id;
 	
-	private Double quantity;
-	private String note;
-	
-	@ManyToOne
-	@JoinColumn(name = "food_id")
-	private Food food;
+	@OneToOne
+	@JoinColumn(name = "cart_item_id")
+	private CartItem cartItem;
 	
 	@ManyToOne
 	@JoinColumn(name = "order_id")
@@ -38,6 +35,6 @@ public class Dish {
 	private User waiter;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "dish_status")
-	private DishStatus dishStatus;
+	@Column(name = "order_item_status")
+	private OrderItemStatus orderItemStatus;
 }

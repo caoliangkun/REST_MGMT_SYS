@@ -38,5 +38,8 @@ public class Customer implements Serializable {
 	@OneToMany(mappedBy = "customer")
 	private Set<Payment> payments;
 	
+	@OneToMany(mappedBy = "customer")
+	private Set<Selection> selections;
+	
 	
 }
