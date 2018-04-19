@@ -7,7 +7,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 @javax.persistence.Table(name = "tables")
@@ -25,9 +27,12 @@ public class Table implements Serializable {
 	@Column(name = "capacity")
 	private Integer capacity;
 	
-	@OneToMany(mappedBy = "table")
-	private Set<Order> orders;
+
 	
 	@OneToMany(mappedBy = "table")
-	private Set<Dish> dishes;
+	private Set<OrderItem> orderItems;
+	
+	@OneToOne
+	@JoinColumn(name = "waiter_id")
+	private User waiter;
 }

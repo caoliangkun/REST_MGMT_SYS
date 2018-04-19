@@ -41,14 +41,16 @@ public class User implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<Food> foods;
 
-	@ManyToMany(mappedBy = "waiters")
-	private Set<Order> orders;
+	
 	
 	@OneToMany(mappedBy = "waiter")
-	private Set<Dish> dishes;
+	private Set<OrderItem> orderItems;
 	
 	@OneToMany(mappedBy = "cashier")
 	private Set<Payment> payments;
+	
+	@OneToOne(mappedBy = "waiter")
+	private edu.zufe.rms.model.Table table;
 
 	protected User() {
 	}

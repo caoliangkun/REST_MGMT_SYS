@@ -44,16 +44,8 @@ public class Order implements Serializable{
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
-	@ManyToMany
-	@JoinTable(name = "Order_User", 
-	joinColumns = { @JoinColumn(name = "order_id") }, 
-	inverseJoinColumns = {@JoinColumn(name = "user_id") })
-	private Set<User> waiters;
-	
-	@ManyToOne
-	@JoinColumn(name = "table_id")
-	private edu.zufe.rms.model.Table table;
+
 	
 	@OneToMany(mappedBy = "order")
-	private Set<Dish> dishes;
+	private Set<OrderItem> orderItems;
 }
