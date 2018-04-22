@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
@@ -15,22 +15,8 @@
 </head>
 
 <body style="font-size:30px;">
-    <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-            <div class="container"><a class="navbar-brand" href="index.html">RMS</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1" style="font-size:23px;">
-                    <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="menu.html">Menu</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Cart</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Orders</a></li>
-                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Mine</a>
-                            <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="profile.html">My profile</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
-                        </li>
-                    </ul><span class="navbar-text actions"> <a href="login.html" class="login">Log In</a><a class="btn btn-light action-button" role="button" href="register.html">Sign Up</a></span></div>
-            </div>
-        </nav>
-    </div>
+    <!-- nav -->
+	<div th:insert="navigation :: nav"></div>
     <div class="sticky-top">
         <div class="container">
             <div class="row">

@@ -5,7 +5,10 @@
 <title>welcome page</title>
 </head>
 <body>
+<!-- nav -->
+	<div th:insert="navigation :: nav"></div>
 	<p>Riverland Hokkien Chinese Restaurant</p>
 	Hello <p th:text=${name}></p>
+	<a href="allusers.html">to all users</a>
 </body>
 </html>
