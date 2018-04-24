@@ -11,6 +11,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -31,7 +32,7 @@ public class Food implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue()
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "food_id")
 	private Long id;
 
@@ -41,9 +42,8 @@ public class Food implements Serializable {
 	@Column(nullable = false)
 	private Double price;
 
-	@Column()
-	@Enumerated(EnumType.STRING)
-	private Applied applied;
+	@Column(length = 5)
+	private String applied;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "last_update_at")
@@ -71,18 +71,13 @@ public class Food implements Serializable {
 	}
 
 
-
-	public Food(String name, Double price, Date lastUpdatedAt, Rating rating, User user,
-			FoodType foodType) {
+	public Food(String name, Double price, String applied, FoodType foodType) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.lastUpdatedAt = lastUpdatedAt;
-		this.rating = rating;
-		this.user = user;
+		this.applied = applied;
 		this.foodType = foodType;
 	}
-
 
 
 	public Food(String name, double price) {
@@ -91,66 +86,116 @@ public class Food implements Serializable {
 	}
 
 
+	
+	
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
+
 	public String getName() {
 		return name;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
 	public Double getPrice() {
 		return price;
 	}
+
 
 	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 
+	public String getApplied() {
+		return applied;
+	}
+
+
+	public void setApplied(String applied) {
+		this.applied = applied;
+	}
+
 
 	public Date getLastUpdatedAt() {
 		return lastUpdatedAt;
 	}
 
+
 	public void setLastUpdatedAt(Date lastUpdatedAt) {
 		this.lastUpdatedAt = lastUpdatedAt;
 	}
+
+
+	public Image getImg() {
+		return img;
+	}
+
+
+	public void setImg(Image img) {
+		this.img = img;
+	}
+
 
 	public Rating getRating() {
 		return rating;
 	}
 
+
 	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
+
 
 	public User getUser() {
 		return user;
 	}
 
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
 	public FoodType getFoodType() {
 		return foodType;
 	}
 
+
 	public void setFoodType(FoodType foodType) {
 		this.foodType = foodType;
 	}
 
+
+	public Set<Selection> getSelections() {
+		return selections;
+	}
+
+
+	public void setSelections(Set<Selection> selections) {
+		this.selections = selections;
+	}
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+	public String toString() {
+//		return "id: " + getId() + ", name: " + getName() + ", price: " + getPrice() + ",food type: " + getFoodType().toString() + ", applied: " + getApplied();
+		return "id: " + getId() + ", name: " + getName() + ", price: " + getPrice();
+	} 
 
 }

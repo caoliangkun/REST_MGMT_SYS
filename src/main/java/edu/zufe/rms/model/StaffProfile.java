@@ -23,6 +23,7 @@ import javax.persistence.TemporalType;
 import edu.zufe.rms.enums.Position;
 
 @Entity
+@javax.persistence.Table(name = "staff_profiles")
 public class StaffProfile implements Serializable {
 	/**
 	 * 

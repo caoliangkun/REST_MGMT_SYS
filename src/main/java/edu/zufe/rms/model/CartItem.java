@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
+@javax.persistence.Table(name = "cart_items")
 public class CartItem {
 	@Id
 	@GeneratedValue

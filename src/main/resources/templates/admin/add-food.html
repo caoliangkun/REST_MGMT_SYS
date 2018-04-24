@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add food</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div th:insert="admin/admin-index :: nav"></div>
+
+    <form action="addFood" method="get" id="food">
+        name: <input name="name" type="text"><br>
+        price: <input name="price" type="number"><br>
+        applied:
+        <input type="radio" name="applied" value="yes" checked> Yes
+        <input type="radio" name="applied" value="no"> No<br>
+        food type:
+        <select name="foodType" form="food">
+            <option value="Soup">Soup</option>
+            <option value="Appetizer">Appetizer</option>
+            <option value="Hotpot">Hotpot</option>
+        </select><br>
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>

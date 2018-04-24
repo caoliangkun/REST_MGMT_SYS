@@ -13,7 +13,6 @@ import edu.zufe.rms.model.User;
 import edu.zufe.rms.service.UserService;
 
 @Controller
-@RequestMapping(path = "/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -28,15 +27,39 @@ public class UserController {
 		return "Have saved a user: " + user.getName();
 	}
 	
-	@GetMapping(path = "/findall")
-	public String findAll(Model model) {
-		model.addAttribute("users", userService.findAll());
-		return "allusers";
-	}
 	
 	@GetMapping(path = "/delete")
 	public String deleteByPhone(@RequestParam(name = "phone"	) String phone) {
 		userService.deleteByPhone(phone);
 		return "redirect:/user/findall";
 	}
+	
+	@GetMapping(path = "/deleteUser")
+	public String deleteById(@RequestParam(name = "id"	) Long id) {
+		userService.deleteById(id);
+		return "redirect:users.html";
+	}
+	
+	@RequestMapping(path = "createUser", method = RequestMethod.GET)
+	public String saveUser(
+			@RequestParam(name = "name") String name,
+			@RequestParam(name = "pwd") String password,
+			@RequestParam(name = "phone") String phone,
+			@RequestParam(name = "position") String postion) {
+		User user = userService.CreateUser(name, password, phone);
+		return "admin/add-user";
+	}
+	
+	@RequestMapping(path = "add-user.html", method = RequestMethod.GET)
+	public String toAddUser() {
+		
+		return "admin/add-user";
+	}
+	
+	@GetMapping(path = "/users.html")
+	public String findAll(Model model) {
+		model.addAttribute("users", userService.findAll());
+		return "admin/users";
+	}
+	
 }

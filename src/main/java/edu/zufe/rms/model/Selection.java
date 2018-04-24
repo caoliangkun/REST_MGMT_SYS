@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import edu.zufe.rms.enums.Spicey;
 
 @Entity
-@javax.persistence.Table(name = "selection")
+@javax.persistence.Table(name = "selections")
 public class Selection {
 	@Id
 	@GeneratedValue

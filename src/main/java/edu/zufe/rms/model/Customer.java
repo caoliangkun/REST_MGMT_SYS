@@ -16,6 +16,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@javax.persistence.Table(name = "customers")
 public class Customer implements Serializable {
 	/**
 	 * 

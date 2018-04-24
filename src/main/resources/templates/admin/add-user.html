@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>add user</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function checkPwd() {
+            var pwd = document.getElementById("pwd").value;
+            var rpwd = document.getElementById("rpwd").value;
+            if (pwd != rpwd) {
+                alert("the passwords you have typed are not same!")
+                document.getElementById("pwd").value = "";
+                document.getElementById("rpwd").value = "";
+            }
+        }
+    </script>
+</head>
+<body>
+<div th:insert="admin/admin-index :: nav"></div>
+
+<form class="form-control" action="createUser" method="get" id="user">
+    name: <input name="name" type="text"><br>
+    phone: <input name="phone" type="tel"><br>
+    password: <input id="pwd" name="pwd" type="password"><br>
+    repeat password: <input id="rpwd" name="rpwd" type="password" onchange="checkPwd()"><br>
+    position:
+    <select name="position" form="user">
+        <option value="EMPLOYEE">Employee</option>
+        <option value="MANAGER">Manager</option>
+        <option value="GUEST">Guest</option>
+    </select><br>
+
+    <input type="submit" value="submit">
+</form>
+
+</body>
+</html>

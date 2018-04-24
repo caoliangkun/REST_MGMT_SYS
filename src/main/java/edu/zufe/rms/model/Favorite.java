@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@javax.persistence.Table(name = "favorites")
 public class Favorite {
 	@Id
 	@GeneratedValue

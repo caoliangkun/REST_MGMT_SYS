@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import edu.zufe.rms.enums.OrderItemStatus;
 
 @Entity
+@javax.persistence.Table(name = "order_items")
 public class OrderItem {
 	@Id
 	@GeneratedValue

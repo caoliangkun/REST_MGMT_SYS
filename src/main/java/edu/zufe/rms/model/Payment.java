@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 import edu.zufe.rms.enums.PaymentMethod;
 
 @Entity
-@javax.persistence.Table(name = "payment")
+@javax.persistence.Table(name = "payments")
 public class Payment implements Serializable {
 	/**
 	 * 
