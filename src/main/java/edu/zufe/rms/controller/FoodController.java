@@ -49,10 +49,10 @@ public class FoodController {
 			@RequestParam(name = "foodType") String foodType) {
 		Food food = null;
 		if (name != null && price != null ) {
-//			food = foodService.save(name, price, applied, foodType);
-			food = foodService.save(name, price);
+			food = foodService.save(name, price, applied, foodType);
+//			food = foodService.save(name, price);
 		}
-		return "admin/add-food";
+		return "redirect:add-food.html";
 	}
 
 }

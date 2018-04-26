@@ -2,230 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>cart</title>
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-<link rel="stylesheet" href="../static/css/styles.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-	<!-- nav -->
-	<div th:insert="index :: nav"></div>
-	<div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h4 class="card-title">Title</h4>
-							<h6 class="text-muted card-subtitle mb-2">Subtitle</h6>
-							<p class="card-text">Nullam id dolor id nibh ultricies
-								vehicula ut id elit. Cras justo odio, dapibus ac facilisis in,
-								egestas eget quam. Donec id elit non mi porta gravida at eget
-								metus.</p>
-							<a class="card-link" href="#">Link</a><a class="card-link"
-								href="#">Link</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="sticky-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-7">
-					<span style="font-size: 30PX; position: fixed; bottom: 0px;">Total
-						price: RMB 81</span>
-				</div>
-				<div
-					class="col-md-6 col-lg-5 d-flex justify-content-center align-items-center">
-					<button class="btn btn-primary btn-lg" type="submit"
-						style="position: fixed; bottom: 0px;">Button</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-	<script src="../static/js/script.min.js"></script>
+<!-- nav -->
+<div th:insert="navigation :: nav"></div>
+
+<table class="table">
+    <thead class="">
+        <tr>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="c : ${cart}">
+            <td th:text="${c.food.name}">APPLE</td>
+            <td th:text="${c.food.price}">5.2</td>
+            <td>
+                <input type="number" value="2" th:value="${c.quantity}">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="sticky-bottom">
+    <div class="container" style="position: fixed; bottom: 0px">
+        <div class="row">
+            <div class="col-sm-7">
+                <span >Total price: RMB </span>
+                <span th:text="${total}">81</span>
+            </div>
+            <div class="col-sm-5">
+                <button class="btn btn-primary" type="submit">
+                    Check out
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 </html>

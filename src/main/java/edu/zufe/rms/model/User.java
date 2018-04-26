@@ -6,16 +6,16 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import edu.zufe.rms.enums.Position;
 
 @Entity
 @Table(name = "users")
@@ -34,6 +34,9 @@ public class User implements Serializable {
 	private String name;
 	@Column(nullable = false)
 	private String password;
+	
+	@Enumerated(EnumType.STRING)
+	private Position position;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private StaffProfile profile;
@@ -55,11 +58,12 @@ public class User implements Serializable {
 	protected User() {
 	}
 
-	public User(String name, String password, String phone) {
+	public User(String name, String password, String phone, Position position) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.phone = phone;
+		this.position = position;
 	}
 
 	public User(String name, String password) {
@@ -93,6 +97,64 @@ public class User implements Serializable {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public StaffProfile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(StaffProfile profile) {
+		this.profile = profile;
+	}
+
+	public Set<Food> getFoods() {
+		return foods;
+	}
+
+	public void setFoods(Set<Food> foods) {
+		this.foods = foods;
+	}
+
+	public Set<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+	public void setOrderItems(Set<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public Set<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(Set<Payment> payments) {
+		this.payments = payments;
+	}
+
+	public edu.zufe.rms.model.Table getTable() {
+		return table;
+	}
+
+	public void setTable(edu.zufe.rms.model.Table table) {
+		this.table = table;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String toString() {

@@ -20,7 +20,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import edu.zufe.rms.enums.Applied;
 import edu.zufe.rms.enums.FoodType;
 import edu.zufe.rms.enums.Rating;
 
@@ -64,7 +63,7 @@ public class Food implements Serializable {
 	private FoodType foodType;
 	
 	@OneToMany(mappedBy = "food")
-	private Set<Selection> selections;
+	private Set<CartItem> cart;
 
 	public Food() {
 		super();
@@ -178,13 +177,15 @@ public class Food implements Serializable {
 	}
 
 
-	public Set<Selection> getSelections() {
-		return selections;
+	
+
+	public Set<CartItem> getCart() {
+		return cart;
 	}
 
 
-	public void setSelections(Set<Selection> selections) {
-		this.selections = selections;
+	public void setCart(Set<CartItem> cart) {
+		this.cart = cart;
 	}
 
 

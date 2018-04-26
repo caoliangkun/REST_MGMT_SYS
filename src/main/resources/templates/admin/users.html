@@ -18,6 +18,7 @@
             <td>Id</td>
             <td>Name</td>
             <td>Phone</td>
+            <td>Position</td>
             <td>Action</td>
         </tr>
     </thead>
@@ -26,6 +27,7 @@
             <td th:text="${user.id}">1</td>
             <td th:text="${user.name}">Tom</td>
             <td th:text="${user.phone}">17816853781</td>
+            <td th:text="${user.position}">Employee</td>
             <td>
                 <form action="deleteUser" method="get">
                     <input name="id" type="hidden" th:value="${user.id}" >

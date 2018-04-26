@@ -19,6 +19,12 @@ public class Selection {
 	@Column(name = "selection_id")
 	private Long id;
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+
 	@Enumerated(EnumType.STRING)
 	private Spicey spicey;
 	
@@ -36,5 +42,16 @@ public class Selection {
 	@ManyToOne
 	@JoinColumn(name = "cart_item_id")
 	private CartItem cartItem;
+
+	public Selection() {
+		super();
+	}
+
+	public Selection(Food food, CartItem cartItem) {	
+		this.food = food;
+		this.cartItem = cartItem;
+	}
+	
+	
 	
 }

@@ -3,6 +3,7 @@ package edu.zufe.rms.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.zufe.rms.enums.Position;
 import edu.zufe.rms.model.User;
 import edu.zufe.rms.repository.UserRepository;
 
@@ -11,8 +12,8 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 	
-	public User CreateUser(String name, String password, String phone) {
-		User user = new User(name, password, phone);
+	public User addUser(String name, String password, String phone, String position) {
+		User user = new User(name, password, phone, Position.valueOf(position));
 		return userRepository.save(user);
 	}
 	

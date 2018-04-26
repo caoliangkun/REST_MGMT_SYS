@@ -29,6 +29,8 @@ public class Customer implements Serializable {
 	private String name;
 	@Column(nullable = false)
 	private String phone;
+	
+	private String password;
 	@Column(name = "create_date")
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
@@ -40,7 +42,86 @@ public class Customer implements Serializable {
 	private Set<Payment> payments;
 	
 	@OneToMany(mappedBy = "customer")
-	private Set<Selection> selections;
+	private Set<CartItem> cart;
+
+	public Customer(String name, String phone, String password) {
+		super();
+		this.name = name;
+		this.phone = phone;
+		this.password = password;
+	}
+
+	public Customer() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Set<Payment> getPayments() {
+		return payments;
+	}
+
+	public void setPayments(Set<Payment> payments) {
+		this.payments = payments;
+	}
+
+	public Set<CartItem> getCart() {
+		return cart;
+	}
+
+	public void setCart(Set<CartItem> cart) {
+		this.cart = cart;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 	
 }

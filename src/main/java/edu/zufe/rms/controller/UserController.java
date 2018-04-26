@@ -17,15 +17,16 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(path = "/save", method = RequestMethod.POST)
-	@ResponseBody
-	public String save(
-			@RequestParam(required = false, name = "name") String name,
-			@RequestParam(name = "password", required = false) String password,
-			@RequestParam(required = false, name = "phone") String phone) {
-		User user = userService.CreateUser(name, password, phone);
-		return "Have saved a user: " + user.getName();
-	}
+//	@RequestMapping(path = "/save", method = RequestMethod.POST)
+//	@ResponseBody
+//	public String save(
+//			@RequestParam(required = false, name = "name") String name,
+//			@RequestParam(name = "password", required = false) String password,
+//			@RequestParam(required = false, name = "phone") String phone,
+//			@RequestParam(required = false, name = "position") String position) {
+//		User user = userService.addUser(name, password, phone, position);
+//		return "Have saved a user: " + user.getName();
+//	}
 	
 	
 	@GetMapping(path = "/delete")
@@ -45,8 +46,8 @@ public class UserController {
 			@RequestParam(name = "name") String name,
 			@RequestParam(name = "pwd") String password,
 			@RequestParam(name = "phone") String phone,
-			@RequestParam(name = "position") String postion) {
-		User user = userService.CreateUser(name, password, phone);
+			@RequestParam(name = "position") String position) {
+		userService.addUser(name, password, phone, position);
 		return "admin/add-user";
 	}
 	
