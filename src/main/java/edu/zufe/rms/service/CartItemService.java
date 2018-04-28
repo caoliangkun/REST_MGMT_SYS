@@ -52,4 +52,14 @@ public class CartItemService {
 		}
 		return false;
 	}
+
+
+	public void deleteAll() {
+		cartItemRepo.deleteAll();
+	}
+
+
+	public void deleteById(Long id) {
+		cartItemRepo.deleteById(id);	
+	}
 }

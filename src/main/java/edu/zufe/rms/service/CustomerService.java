@@ -15,4 +15,12 @@ public class CustomerService {
 		return custRepo.save(cust);
 	}
 
+	public Customer findByPhone(String phone) {
+		for (Customer cust: custRepo.findAll()) {
+			if (cust.getPhone().equals(phone))
+				return cust;
+		}
+		return null;
+	}
+
 }

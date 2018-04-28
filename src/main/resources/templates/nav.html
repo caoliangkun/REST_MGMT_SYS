@@ -26,6 +26,12 @@
                 <li class="nav-item">
                     <a class="nav-link" href="cart.html">Cart</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tables</a>
+                </li>
+                <li class="nav-item" id="admin" onload="show()">
+                    <a class="nav-link" href="admin-index.html">Admin</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Orders</a>
                     <div class="dropdown-menu">
@@ -44,6 +50,9 @@
                 </li>
             </ul>
         </div>
+        <span th:text="${session.person.position}" class="text-white" id="position" style="display: none">
+            name
+        </span>
         <span class="navbar-text actions">
             <a href="login.html" class="login">Log In</a>
             <a class="btn btn-primary action-button" role="button" href="register.html">
@@ -51,6 +60,17 @@
             </a>
         </span>
     </nav>
+    <script>
+
+        var x = "CUSTOMER";
+        var y = document.getElementById("position").innerText;
+        if (y == x) {
+            document.getElementById("admin").style.display = "none";
+        }
+
+
+    </script>
 </div>
+    
 </body>
 </html>

@@ -25,8 +25,6 @@ public class OrderController {
 	
 	@GetMapping(path = "/saveOrder")
 	public String saveOrder() {
-		
-		
 		// Save a order record in table orders
 		Order order = orderService.save();
 		
@@ -41,7 +39,7 @@ public class OrderController {
 		}
 		orderService.changeTotalPrice(addition, order);
 		// Delete the cart items 
-		
+		cartService.deleteAll();
 		return "order_success";
 	}
 	

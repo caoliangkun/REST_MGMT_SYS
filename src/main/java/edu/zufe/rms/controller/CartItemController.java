@@ -33,6 +33,10 @@ public class CartItemController {
 		return "redirect:menu.html";
 	}
 	
-	
+	@GetMapping(path = "/deleteCartItem")
+	public String deleteCartItem(@RequestParam(name = "id") Long id) {
+		cartService.deleteById(id);
+		return "redirect:cart.html";
+	}
 	
 }

@@ -8,12 +8,15 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import edu.zufe.rms.enums.Position;
 
 @Entity
 @javax.persistence.Table(name = "customers")
@@ -35,6 +38,9 @@ public class Customer implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	
+	@Enumerated
+	private static Position position;
+	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Order> orders = new HashSet<>();
 	
@@ -43,6 +49,10 @@ public class Customer implements Serializable {
 	
 	@OneToMany(mappedBy = "customer")
 	private Set<CartItem> cart;
+	
+	static {
+		position = Position.CUSTOMER;
+	}
 
 	public Customer(String name, String phone, String password) {
 		super();
@@ -121,6 +131,14 @@ public class Customer implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public static Position getPosition() {
+		return position;
+	}
+
+	public static void setPosition(Position position) {
+		Customer.position = position;
 	}
 	
 	

@@ -22,6 +22,7 @@
             <td>Name</td>
             <td>Price</td>
             <td>Quantity</td>
+            <td>Action</td>
         </tr>
     </thead>
     <tbody th:each="c : ${cart}">
@@ -29,6 +30,12 @@
             <td th:text="${c.food.name}">APPLE</td>
             <td th:text="${c.food.price}">5.2</td>
             <td th:text="${c.quantity}">5</td>
+            <td>
+                <form class="" action="deleteCartItem" method="get">
+                    <input name="id" type="hidden" th:value="${c.id}">
+                    <button class="btn btn-primary" type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
     </tbody>
 </table>

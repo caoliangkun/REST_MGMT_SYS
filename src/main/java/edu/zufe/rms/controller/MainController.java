@@ -1,5 +1,7 @@
 package edu.zufe.rms.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,19 +26,28 @@ public class MainController {
 	// Uses the user phone account and password for logging in
 	@PostMapping(path = "/login")
 	public String login(@RequestParam(name = "phone") String phone, @RequestParam(name = "password") String password,
-			Model postion) {
+			Model model, HttpSession session) {
 		if (loginService.loginUser(phone, password)) {
 			User user = userService.findByAccount(phone);
 			if (user.getPosition() != null) {
-				postion.addAttribute("position", user.getPosition());
+				model.addAttribute("position", user.getPosition());
 			}
-			return "redirect:index.html";
+			session.setAttribute("person", user);
+			User u = (User) session.getAttribute("person");
+			System.out.println(u.getPhone());
+			return "redirect:admin-index.html"; 
 		} else if (loginService.loginCust(phone, password)) {
+			Customer cust = customerService.findByPhone(phone);
+			session.setAttribute("person", cust);
+			Customer u = (Customer) session.getAttribute("person");
+			System.out.println(u.getPhone());
 			return "redirect:index.html";
-		} else {
+		}
+		else {
 			return null;
 		}
 	}
+	
 
 	@PostMapping(path = "/register")
 	public String register(@RequestParam(name = "name") String name, @RequestParam(name = "phone") String phone,
