@@ -39,18 +39,18 @@ public class Selection {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
-	@ManyToOne
-	@JoinColumn(name = "cart_item_id")
-	private CartItem cartItem;
+//	@ManyToOne
+//	@JoinColumn(name = "cart_item_id")
+//	private CartItem cartItem;
 
 	public Selection() {
 		super();
 	}
 
-	public Selection(Food food, CartItem cartItem) {	
-		this.food = food;
-		this.cartItem = cartItem;
-	}
+//	public Selection(Food food, CartItem cartItem) {	
+//		this.food = food;
+//		this.cartItem = cartItem;
+//	}
 	
 	
 	

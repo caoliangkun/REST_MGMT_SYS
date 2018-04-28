@@ -7,13 +7,14 @@
     <title>cart</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
 <!-- nav -->
-<div th:insert="navigation :: nav"></div>
+<div th:insert="nav :: nav"></div>
 
 <table class="table">
     <thead class="">
@@ -23,13 +24,11 @@
             <td>Quantity</td>
         </tr>
     </thead>
-    <tbody>
-        <tr th:each="c : ${cart}">
+    <tbody th:each="c : ${cart}">
+        <tr>
             <td th:text="${c.food.name}">APPLE</td>
             <td th:text="${c.food.price}">5.2</td>
-            <td>
-                <input type="number" value="2" th:value="${c.quantity}">
-            </td>
+            <td th:text="${c.quantity}">5</td>
         </tr>
     </tbody>
 </table>
@@ -41,9 +40,10 @@
                 <span th:text="${total}">81</span>
             </div>
             <div class="col-sm-5">
-                <button class="btn btn-primary" type="submit">
+
+                <a class="btn btn-primary" href="saveOrder">
                     Check out
-                </button>
+                </a>
             </div>
         </div>
     </div>

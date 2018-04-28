@@ -21,11 +21,10 @@ public class CartItem {
 	
 	private Integer quantity;
 	
-	@OneToMany(mappedBy = "cartItem")
-	private Set<Selection> selections;
+//	@OneToMany(mappedBy = "cartItem")
+//	private Set<Selection> selections;
 	
-	@OneToOne(mappedBy = "cartItem")
-	private OrderItem orderItem;
+	
 	
 
 	@ManyToOne
@@ -62,21 +61,15 @@ public class CartItem {
 		this.quantity = quantity;
 	}
 
-	public Set<Selection> getSelections() {
-		return selections;
-	}
+//	public Set<Selection> getSelections() {
+//		return selections;
+//	}
+//
+//	public void setSelections(Set<Selection> selections) {
+//		this.selections = selections;
+//	}
 
-	public void setSelections(Set<Selection> selections) {
-		this.selections = selections;
-	}
-
-	public OrderItem getOrderItem() {
-		return orderItem;
-	}
-
-	public void setOrderItem(OrderItem orderItem) {
-		this.orderItem = orderItem;
-	}
+	
 
 	public Food getFood() {
 		return food;

@@ -5,69 +5,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>restt_mgmt_sys</title>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet"-->
+	<!--href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">-->
+<!--<link rel="stylesheet"-->
+	<!--href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-<link rel="stylesheet" href="/../restt_mgmt_sys/src/main/resources/static/css/styles.min.css">
+<!--<link rel="stylesheet"-->
+	<!--href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">-->
+<!--<link rel="stylesheet"-->
+	<!--href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">-->
+<!--<link rel="stylesheet"-->
+	<!--href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">-->
+<!--<link rel="stylesheet" href="/../restt_mgmt_sys/src/main/resources/static/css/styles.min.css">-->
 </head>
 
 <body>
 	<!--navbar-->
-	<div th:fragment="nav">
-		<nav
-			class="navbar navbar-light navbar-expand-md navigation-clean-button">
-			<div class="container">
-				<a class="navbar-brand" href="#">RMS</a>
-				<button class="navbar-toggler" data-toggle="collapse"
-					data-target="#navcol-1">
-					<span class="sr-only">Toggle navigation</span><span
-						class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navcol-1"
-					style="font-size: 23px;">
-					<ul class="nav navbar-nav mr-auto">
-						<li class="nav-item" role="presentation"><a class="nav-link"
-							href="menu.html">Menu</a></li>
-						<li class="nav-item" role="presentation"><a class="nav-link"
-							href="cart.html">Cart</a></li>
-						<li class="dropdown"><a
-							class="dropdown-toggle nav-link dropdown-toggle"
-							data-toggle="dropdown" aria-expanded="false" href="orders_all.html">Order</a>
-							<div class="dropdown-menu" role="menu">
-								<a class="dropdown-item" role="presentation" href="orders_all.html">All</a><a
-									class="dropdown-item" role="presentation" href="orders_nc.html">Not
-									completed</a><a class="dropdown-item" role="presentation"
-									href="orders_c.html">Completed</a>
-							</div></li>
-						<li class="dropdown"><a
-							class="dropdown-toggle nav-link dropdown-toggle"
-							data-toggle="dropdown" aria-expanded="false" href="#">Mine</a>
-							<div class="dropdown-menu" role="menu">
-								<a class="dropdown-item" role="presentation" href="profile.html
-								">My
-									profile</a><a class="dropdown-item" role="presentation" href="#">Second
-									Item</a><a class="dropdown-item" role="presentation" href="#">Third
-									Item</a>
-							</div></li>
-					</ul>
-					<span class="navbar-text actions">
-						<a href="login.html"
-						class="login">Log In</a><a class="btn btn-light action-button"
-						role="button" href="register.html">Sign Up</a>
-					</span>
-				</div>
-			</div>
-		</nav>
-	</div>
+	<div th:insert="nav :: nav"></div>
 	<div class="carousel slide" data-ride="carousel" id="carousel-1">
 		<div class="carousel-inner" role="listbox">
 			<div class="carousel-item active">
@@ -126,13 +86,13 @@
 			</div>
 		</div>
 	</div>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-	<script src="/../restt_mgmt_sys/src/main/resources/static/js/script.min.js"></script>
+	<!--<script-->
+		<!--src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+	<!--<script-->
+		<!--src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
+	<!--<script-->
+		<!--src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>-->
+	<!--<script src="/../restt_mgmt_sys/src/main/resources/static/js/script.min.js"></script>-->
 </body>
 
 </html>

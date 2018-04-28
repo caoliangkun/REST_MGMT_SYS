@@ -5,30 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>restt_mgmt_sys</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="../static/css/styles.min.css">
 </head>
 
 <body style="font-size:30px;">
     <!-- nav -->
-	<div th:insert="navigation :: nav"></div>
-    <div class="sticky-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-12 align-items-center"><span class="align-self-center btn-block">orders</span></div>
-            </div>
-            <div class="row">
-                <div class="col-md-4"><a class="btn btn-primary btn-block" role="button" href="#orders_all.html" data-toggle="collapse" data-target="#all">All</a></div>
-                <div class="col-md-4"><button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#notCompleted">Not completed</button></div>
-                <div class="col-md-4"><a class="btn btn-primary btn-block" role="button" href="order_c.html" data-toggle="collapse" data-target="#completed">Completed</a></div>
-            </div>
-        </div>
-    </div>
+	<div th:insert="nav :: nav"></div>
     <div>
         <div class="container">
             <div class="row">
@@ -38,10 +24,10 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>-->
+    <!--<script src="assets/js/script.min.js"></script>-->
 </body>
 
 </html>

@@ -64,6 +64,9 @@ public class Food implements Serializable {
 	
 	@OneToMany(mappedBy = "food")
 	private Set<CartItem> cart;
+	
+	@OneToMany(mappedBy = "food")
+	private Set<OrderItem> orderItems;
 
 	public Food() {
 		super();

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import edu.zufe.rms.enums.FoodType;
 import edu.zufe.rms.model.CartItem;
 import edu.zufe.rms.model.Food;
+import edu.zufe.rms.model.Order;
 import edu.zufe.rms.service.CartItemService;
 import edu.zufe.rms.service.FoodService;
+import edu.zufe.rms.service.OrderService;
 
 @Controller
 public class IndexController {
@@ -20,6 +22,8 @@ public class IndexController {
 	FoodService foodService;
 	@Autowired
 	CartItemService cartService;
+	@Autowired
+	OrderService orderService;
 	
 	@GetMapping(path = "/index.html")
 	public String toIndex() {
@@ -66,7 +70,9 @@ public class IndexController {
 	}
 	
 	@GetMapping(path = "/orders_all.html")
-	public String toOrdersAll() {
+	public String toOrdersAll(Model model) {
+		List<Order> orders = orderService.findAll();
+		model.addAttribute("orders", orders);
 		return "orders_all";
 	}
 	
