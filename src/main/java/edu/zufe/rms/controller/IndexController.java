@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.zufe.rms.enums.FoodType;
 import edu.zufe.rms.model.CartItem;
+import edu.zufe.rms.model.Customer;
 import edu.zufe.rms.model.Food;
 import edu.zufe.rms.model.Order;
 import edu.zufe.rms.service.CartItemService;
@@ -29,7 +29,11 @@ public class IndexController {
 	OrderService orderService;
 
 	@GetMapping(path = "/index.html")
-	public String toIndex() {
+	public String toIndex(HttpSession session) {
+		if (session.getAttribute("person") == null) {
+			Customer cust = new Customer();
+			session.setAttribute("person", cust);
+		}
 		return "index";
 	}
 
