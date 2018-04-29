@@ -19,4 +19,8 @@ public class AdminController {
 	public String addFood() {
 		return "admin/add-food";
 	}
+	@GetMapping(path = "/add_table.html")
+	public String addTable() {
+		return "admin/add_table";
+	}
 }

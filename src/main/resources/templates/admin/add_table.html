@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div th:insert="admin/admin-index :: nav"></div>
+
+<div class="container">
+    <form class="form-control" action="/addTable">
+            <label for="capacity">Capacity:</label><br>
+            <input class="input-group" name="capacity" type="number" id="capacity"><br>
+            <label for="status">Status:</label><br>
+            <input class="input-group" name="status" type="text" id="status" value="TO_USE"><br>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+    </form>
+</div>
+</body>
+</html>

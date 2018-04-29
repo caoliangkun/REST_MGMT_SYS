@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ResttMgmtSysApplication {
-	private static final Logger log = LoggerFactory.getLogger(ResttMgmtSysApplication.class);
-
+	public static final Logger log = LoggerFactory.getLogger(ResttMgmtSysApplication.class);
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ResttMgmtSysApplication.class, args);
-
+		
 	} 
 
 }
