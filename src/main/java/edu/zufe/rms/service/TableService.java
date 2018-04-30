@@ -2,6 +2,7 @@ package edu.zufe.rms.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ public class TableService {
 	@Autowired
 	private TableRepository tableRepo;
 
-	public Table save(String capacity, String status) {
-		Table table = new Table(Integer.valueOf(capacity), TableStatus.valueOf(status));
+	public Table save(String tableId, String capacity, String status) {
+		Table table = new Table(Long.valueOf(tableId), Integer.valueOf(capacity), TableStatus.valueOf(status));
 		return tableRepo.save(table);
 	}
 
@@ -31,5 +32,19 @@ public class TableService {
 			tables.add(t);
 		}
 		return tables;
+	}
+
+	public void deleteById(String id) {
+		tableRepo.deleteById(Long.valueOf(id));
+	}
+
+	public void updateStatus(String id, String status) {
+		Optional<Table> table = tableRepo.findById(Long.valueOf(id));
+		if (table.isPresent()) {
+			Table t = table.get();
+			t.setTableStatus(TableStatus.valueOf(status));
+			tableRepo.save(t);
+		}
+		
 	}
 }

@@ -40,14 +40,18 @@
             <td th:text="${t.capacity}">
                 8
             </td>
-            <td th:texxt="${t.tableStatus}">
+            <td th:text="${t.tableStatus}">
                 IN USING
             </td>
             <td>
-                <button class="btn btn-primary">
-                    Edit
-                </button>
+                <form th:id="${t.id}" action="admin_tables.html" th:action="@{deleteTable}">
+                    <input name="id" type="text" value="1" th:value="${t.id}" style="display: none">
+                    <button class="btn btn-primary" type="submit">
+                        Delete
+                    </button>
+                </form>
             </td>
+
         </tr>
         </tbody>
     </table>

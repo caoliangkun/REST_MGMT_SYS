@@ -24,7 +24,6 @@ public class Table implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
 	@Column(name = "table_id")
 	private Long id;
 	
@@ -46,8 +45,9 @@ public class Table implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Table(Integer capacity, TableStatus tableStatus) {
+	public Table(Long id, Integer capacity, TableStatus tableStatus) {
 		super();
+		this.id = id;
 		this.capacity = capacity;
 		this.tableStatus = tableStatus;
 	}

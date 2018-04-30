@@ -27,7 +27,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Operation</a>
                     <div class="dropdown-menu">
-                        <a href="update_table.html" class="dropdown-item">Update table</a>
+                        <a href="update_table.html" th:href="@{/updateTable}" class="dropdown-item">Update table</a>
 
                     </div>
                 </li>
@@ -42,7 +42,7 @@
                         <a href="add_table.html" class="dropdown-item">Add table</a>
                         <a href="foods.html" class="dropdown-item">show foods</a>
                         <a href="users.html" class="dropdown-item">Show users</a>
-                        <a href="../tables.html" class="dropdown-item">Show tables</a>
+                        <a href="admin_tables.html" th:href="@{showTablesForAdmin}" class="dropdown-item">Show tables</a>
                     </div>
                 </li>
             </ul>

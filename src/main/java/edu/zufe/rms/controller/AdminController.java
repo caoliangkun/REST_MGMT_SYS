@@ -23,4 +23,6 @@ public class AdminController {
 	public String addTable() {
 		return "admin/add_table";
 	}
+	
+	
 }

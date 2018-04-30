@@ -113,11 +113,6 @@ public class IndexController {
 	@Autowired
 	TableService tableService;
 	
-	@GetMapping(path = "/showTables")
-	public String showTables(Model model) {
-		List<Table> tables = tableService.findAll();
-		model.addAttribute("tables", tables);
-		return "tables";
-	}
-
+	
+	
 }

@@ -12,5 +12,48 @@
 </head>
 <body>
 <div th:insert="admin/admin-index :: nav"></div>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>
+                Capacity
+            </td>
+            <td>
+                Status
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
+        </thead>
+        <tbody th:each="t : ${tables}">
+        <tr>
+            <td th:text="${t.id}">
+                1
+            </td>
+            <td th:text="${t.capacity}">
+                8
+            </td>
+            <td th:text="${t.tableStatus}">
+                IN USING
+            </td>
+            <td>
+                <form id="1" th:id="${t.id}" action="update_table.html" th:action="@{changeTableStatus}">
+                    <input name="id" type="text" value="1" th:value="${t.id}" style="display: none">
+                    <select form="1" th:form="${t.id}" name="status">
+                        <option th:each="s : ${statuses}" th:text="${s}" th:value="${s}">IN USING</option>
+                    </select>
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
