@@ -1,5 +1,8 @@
 package edu.zufe.rms.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +23,13 @@ public class TableService {
 	public Table save() {
 		return tableRepo.save(new Table());
 		
+	}
+
+	public List<Table> findAll() {
+		List<Table> tables = new ArrayList<>();
+		for (Table t : tableRepo.findAll()) {
+			tables.add(t);
+		}
+		return tables;
 	}
 }

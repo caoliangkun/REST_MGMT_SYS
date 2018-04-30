@@ -15,9 +15,11 @@ import edu.zufe.rms.model.CartItem;
 import edu.zufe.rms.model.Customer;
 import edu.zufe.rms.model.Food;
 import edu.zufe.rms.model.Order;
+import edu.zufe.rms.model.Table;
 import edu.zufe.rms.service.CartItemService;
 import edu.zufe.rms.service.FoodService;
 import edu.zufe.rms.service.OrderService;
+import edu.zufe.rms.service.TableService;
 
 @Controller
 public class IndexController {
@@ -106,6 +108,16 @@ public class IndexController {
 	@GetMapping(path = "/register.html")
 	public String toRegister() {
 		return "register";
+	}
+	
+	@Autowired
+	TableService tableService;
+	
+	@GetMapping(path = "/showTables")
+	public String showTables(Model model) {
+		List<Table> tables = tableService.findAll();
+		model.addAttribute("tables", tables);
+		return "tables";
 	}
 
 }

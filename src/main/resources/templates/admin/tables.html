@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>title</title>
+    <title>Show Tables</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- nav -->
-<div th:insert="nav :: nav"></div>
+<div th:insert="admin/admin-index :: nav"></div>
 
 <div class="container">
     <table class="table">
@@ -27,6 +27,9 @@
             <td>
                 Status
             </td>
+            <td>
+                Action
+            </td>
         </tr>
         </thead>
         <tbody th:each="t : ${tables}">
@@ -39,6 +42,11 @@
             </td>
             <td th:texxt="${t.tableStatus}">
                 IN USING
+            </td>
+            <td>
+                <button class="btn btn-primary">
+                    Edit
+                </button>
             </td>
         </tr>
         </tbody>
