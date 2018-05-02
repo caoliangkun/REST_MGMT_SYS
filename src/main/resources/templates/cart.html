@@ -16,7 +16,9 @@
 <!-- nav -->
 <div th:insert="nav :: nav"></div>
 <div>
-    <span th:text="${session.person.id}">id</span>
+    <span th:text="${'Your ID: ' + session.person.id}">id</span>
+    <span th:text="${'Table ID: ' + session.cust.tableId}">id</span>
+    <a class="btn btn-secondary" href="tables.html" th:href="@{/showTables}">Choose Table</a>
 </div>
 <table class="table">
     <thead class="">

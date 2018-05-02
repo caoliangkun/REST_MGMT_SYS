@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -38,8 +39,10 @@ public class Customer implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date createdAt;
 	
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private static Position position;
+	
+	private Long tableId;
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Order> orders = new HashSet<>();
@@ -139,6 +142,14 @@ public class Customer implements Serializable {
 
 	public static void setPosition(Position position) {
 		Customer.position = position;
+	}
+
+	public Long getTableId() {
+		return tableId;
+	}
+
+	public void setTableId(Long tableId) {
+		this.tableId = tableId;
 	}
 	
 	

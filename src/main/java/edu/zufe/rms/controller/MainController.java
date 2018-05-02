@@ -44,10 +44,9 @@ public class MainController {
 			return "redirect:admin-index.html"; 
 		} else if (loginService.loginCust(phone, password)) {
 			Customer cust = customerService.findByPhone(phone);
+			cust.setTableId(Long.valueOf(0L));
 			session.setAttribute("person", cust);
 			session.setAttribute("cust", cust);
-			Customer u = (Customer) session.getAttribute("person");
-			System.out.println(u.getPhone());
 			return "redirect:index.html";
 		}
 		else {

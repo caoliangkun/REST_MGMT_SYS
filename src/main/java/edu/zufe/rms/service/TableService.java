@@ -47,4 +47,12 @@ public class TableService {
 		}
 		
 	}
+
+	public edu.zufe.rms.model.Table findById(Long tableId) {
+		Optional<Table> table = tableRepo.findById(tableId);
+		if (table.isPresent()) {
+			return table.get();
+		}
+		return null;
+	}
 }

@@ -18,4 +18,9 @@ public class OrderItemService {
 		return orderItemRepo.save(orderItem);
 	}
 
+	public OrderItem save(OrderItem orderItem) {
+		return orderItemRepo.save(orderItem);
+		
+	}
+
 }

@@ -31,6 +31,9 @@ public class OrderController {
 	@Autowired 
 	private CustomerService custService;
 	
+	@Autowired
+	private edu.zufe.rms.service.TableService tableService;
+	
 	@GetMapping("/saveOrder")
 	public String saveOrder(HttpSession session) {
 		Customer c = (Customer) session.getAttribute("cust");
@@ -44,8 +47,15 @@ public class OrderController {
 		for (CartItem i : cart) {
 			Food food = i.getFood();
 			int quantity = i.getQuantity();
-			OrderItem orderItem = orderItemService.save(food, order, quantity);
+			edu.zufe.rms.model.Table table = tableService.findById(cust.getTableId());
+//			OrderItem orderItem = orderItemService.save(food, order, quantity);
+			OrderItem orderItem = new OrderItem();
+			orderItem.setFood(food);
+			orderItem.setOrder(order);
+			orderItem.setQuantity(quantity);
+			orderItem.setTable(table);
 			orderItem.setCreatedAt(new Date());
+			orderItemService.save(orderItem);
 			addition += orderItem.getFood().getPrice() * orderItem.getQuantity() ;
 		}
 		orderService.changeTotalPrice(addition, order);

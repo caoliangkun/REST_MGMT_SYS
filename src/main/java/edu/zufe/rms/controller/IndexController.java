@@ -38,7 +38,7 @@ public class IndexController {
 		return "index";
 	}
 
-	@GetMapping(path = "/cart.html")
+	@GetMapping(path = "/cart")
 	public String toCart(Model model, HttpSession session) {
 		Customer cust = (Customer) session.getAttribute("cust");
 		if (cust == null) {
