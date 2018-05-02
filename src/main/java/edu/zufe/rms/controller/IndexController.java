@@ -15,7 +15,6 @@ import edu.zufe.rms.model.CartItem;
 import edu.zufe.rms.model.Customer;
 import edu.zufe.rms.model.Food;
 import edu.zufe.rms.model.Order;
-import edu.zufe.rms.model.Table;
 import edu.zufe.rms.service.CartItemService;
 import edu.zufe.rms.service.FoodService;
 import edu.zufe.rms.service.OrderService;
@@ -40,7 +39,12 @@ public class IndexController {
 	}
 
 	@GetMapping(path = "/cart.html")
-	public String toCart(Model model) {
+	public String toCart(Model model, HttpSession session) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		if (cust == null) {
+			return "redirect:/login";
+		}
+		
 		List<CartItem> cart = cartService.findAll();
 		double total = 0.0;
 		for (CartItem c : cart) {
@@ -78,12 +82,7 @@ public class IndexController {
 		return "orders_all";
 	}
 
-	@GetMapping(path = "/orders_all.html")
-	public String toOrdersAll(Model model) {
-		List<Order> orders = orderService.findAll();
-		model.addAttribute("orders", orders);
-		return "orders_all";
-	}
+	
 
 	@GetMapping(path = "/orders_nc.html")
 	public String toOrdersNC() {
@@ -100,7 +99,7 @@ public class IndexController {
 		return "profile";
 	}
 
-	@GetMapping(path = "/login.html")
+	@GetMapping(path = "/login")
 	public String toLogin() {
 		return "login";
 	}
@@ -110,8 +109,7 @@ public class IndexController {
 		return "register";
 	}
 	
-	@Autowired
-	TableService tableService;
+	
 	
 	
 	

@@ -44,7 +44,7 @@ public class Order implements Serializable{
 	private Customer customer;
 
 	
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private Set<OrderItem> orderItems;
 	
 	public Order() {

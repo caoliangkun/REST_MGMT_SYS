@@ -45,6 +45,7 @@ public class MainController {
 		} else if (loginService.loginCust(phone, password)) {
 			Customer cust = customerService.findByPhone(phone);
 			session.setAttribute("person", cust);
+			session.setAttribute("cust", cust);
 			Customer u = (Customer) session.getAttribute("person");
 			System.out.println(u.getPhone());
 			return "redirect:index.html";
@@ -66,6 +67,12 @@ public class MainController {
 		cust.setPhone(phone);
 		cust.setPassword(pwd);
 		customerService.saveCust(cust);
-		return "redirect:login.html";
+		return "redirect:login";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("cust");
+		return "redirect:/login";
 	}
 }

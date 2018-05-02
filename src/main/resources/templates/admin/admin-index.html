@@ -43,11 +43,12 @@
                         <a href="foods.html" class="dropdown-item">show foods</a>
                         <a href="users.html" class="dropdown-item">Show users</a>
                         <a href="admin_tables.html" th:href="@{showTablesForAdmin}" class="dropdown-item">Show tables</a>
+                        <a href="payments.html" th:href="@{showPayments}" class="dropdown-item">Show payments</a>
                     </div>
                 </li>
             </ul>
         </div>
-        <a class="btn btn-primary float-right" href="login.html">Logout</a>
+        <a class="btn btn-primary float-right" href="login.html" th:href="/logout">Logout</a>
     </nav>
 </div>
 

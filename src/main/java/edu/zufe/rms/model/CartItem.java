@@ -36,6 +36,8 @@ public class CartItem {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 	
+//	private User user;
+	
 	public CartItem() {
 	}
 	

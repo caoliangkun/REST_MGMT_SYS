@@ -23,7 +23,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="menu.html">Menu</a>
                 </li>
-                <li class="nav-item">
+                <li id="cart" class="nav-item">
                     <a class="nav-link" href="cart.html">Cart</a>
                 </li>
                 <li class="nav-item">
@@ -32,10 +32,10 @@
                 <li class="nav-item" id="admin" onload="show()">
                     <a class="nav-link" href="admin-index.html">Admin</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li id="orders" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Orders</a>
                     <div class="dropdown-menu">
-                        <a href="orders_all.html" class="dropdown-item">All Orders</a>
+                        <a href="orders_all.html" th:href="@{/allOrders}" class="dropdown-item">All Orders</a>
                         <a href="orders_c.html" class="dropdown-item"> Completed Orders</a>
                         <a href="orders_nc.html" class="dropdown-item">Not Completed Orders</a>
                     </div>
@@ -48,13 +48,15 @@
                         <a href="#" class="dropdown-item"></a>
                     </div>
                 </li>
+
             </ul>
         </div>
-        <span th:text="${session.person.position}" class="text-white" id="position" style="">
+        <span th:text="${session.person.position}" class="text-white" id="position" style="display: none">
             name
         </span>
         <span class="navbar-text actions">
-            <a href="login.html" class="login">Log In</a>
+            <a href="login.html" th:href="@{/login}" class="login">Log In</a>
+            <a href="login.html" th:href="@{/logout}" class="login">Log Out</a>
             <a class="btn btn-primary action-button" role="button" href="register.html">
                 Sign Up
             </a>
@@ -67,7 +69,10 @@
         if (y == x) {
             document.getElementById("admin").style.display = "none";
         }
-
+        if (y != x) {
+            document.getElementById("cart").style.display = "none";
+            document.getElementById("orders").style.display = "none";
+        }
 
     </script>
 </div>

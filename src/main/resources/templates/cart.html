@@ -15,7 +15,9 @@
 <body>
 <!-- nav -->
 <div th:insert="nav :: nav"></div>
-
+<div>
+    <span th:text="${session.person.id}">id</span>
+</div>
 <table class="table">
     <thead class="">
         <tr>

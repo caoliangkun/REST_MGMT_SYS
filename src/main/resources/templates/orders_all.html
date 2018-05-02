@@ -35,15 +35,52 @@
                 <td>
                     TOTAL PRICE
                 </td>
+                <td>
+                    Action
+                </td>
             </tr>
         </thead>
         <tbody th:each="order : ${orders}">
             <tr>
                 <td th:text="${order.id}">1</td>
                 <td th:text="${order.totalPrice}">100.5</td>
+                <!--<td th:if="${order.finished}">paid</td>-->
+                <td th:text="${order.finished}" onload="paid(this)" style="display: none">true</td>
+                <td th:switch="${order.finished}">
+                    <div th:case="true">
+                        <span>paid</span>
+                    </div>
+                    <div th:case="*">
+                        <form id="1" th:id="${order.id}" action="orders_all.html" th:action="@{/pay}">
+                            <input name="id" type="text" value="1" th:value="${order.id}" style="display: none">
+                            <button class="btn btn-primary" type="submit" >
+                                Pay
+                            </button>
+                        </form>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
+    <script>
+        function paid(this) {
+            // var parent = this.parentNode;
+            // var n = this.nextSibling;
+            // var p = this.previousSibling;
+            if (this.innerHTML == "true") {
+                alert("true")
+            //     n.style.display = "none";
+            //     p.style.display = "block";
+            }
+            this.innerHTML = "hello"
+
+            // var x = "true";
+            // var y = this.innerText;
+            // if (y == x) {
+            //     n.style.display = "none";
+            // }
+        }
+    </script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>-->

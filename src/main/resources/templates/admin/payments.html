@@ -11,29 +11,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <table>
-        <td style="display: none">
-            1
-        </td>
-        <button onclick="paid(this)">click me</button>
+<div th:insert="admin/admin-index :: nav"></div>
+<table class="table">
+    <thead>
+    <tr>
         <td>
-            3
+            Id
         </td>
-
-    </table>
-<script>
-    function paid(this) {
-        var p = this.previousSibling;
-        var n =  this.nextSibling;
-        if (this.innerText == "true") {
-            p.style.display = "block";
-            n.style.display = "none";
-
-        } else {
-            p.innerHTML = "11";
-            n.innerHTML = "33";
-        }
-    }
-</script>
+        <td>
+            Amount
+        </td>
+        <td>
+            Payment Method
+        </td>
+        <td>
+            Pay At
+        </td>
+        <td>
+            Customer Id
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p : ${payments}">
+        <td th:text="${p.id}">1</td>
+        <td th:text="${p.amount}">50</td>
+        <td th:text="${p.paymentMethod}">Ali Pay</td>
+        <td th:text="${p.payAt}">2018/5/1</td>
+        <td th:text="${p.customer}">1</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

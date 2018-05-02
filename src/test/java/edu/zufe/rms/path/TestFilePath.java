@@ -12,19 +12,4 @@ import edu.zufe.rms.service.CartItemService;
 public class TestFilePath {
 	
 	
-
-	
-	@Test
-	public void testCart() {
-		Food foo = new Food();
-		foo.setId(new Long(13));
-		CartItemService cartService = new CartItemService();
-		boolean flag = cartService.isFoodExist(foo);
-		if (flag) {
-			System.out.println("yes");
-		} else {
-			System.out.println("no");
-		}
-		
-	}
 }

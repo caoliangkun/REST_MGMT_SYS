@@ -45,4 +45,70 @@ public class Payment implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cashier_id")
 	private User cashier;
+
+	public Payment() {
+		super();
+		
+	}
+
+	public Payment(Double amount, Date payAt, Customer customer) {
+		super();
+		this.amount = amount;
+		this.payAt = payAt;
+		this.customer = customer;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public PaymentMethod getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(PaymentMethod paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+
+	public Date getPayAt() {
+		return payAt;
+	}
+
+	public void setPayAt(Date payAt) {
+		this.payAt = payAt;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public User getCashier() {
+		return cashier;
+	}
+
+	public void setCashier(User cashier) {
+		this.cashier = cashier;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }
