@@ -33,7 +33,10 @@ public class IndexController {
 	public String toIndex(HttpSession session) {
 		if (session.getAttribute("person") == null) {
 			Customer cust = new Customer();
+			cust.setLogin(false);
+			cust.setTableId(Long.valueOf(0L));
 			session.setAttribute("person", cust);
+			session.setAttribute("cust", cust);
 		}
 		return "index";
 	}
@@ -45,7 +48,7 @@ public class IndexController {
 			return "redirect:/login";
 		}
 		
-		List<CartItem> cart = cartService.findAll();
+		List<CartItem> cart = cartService.findAllByCust(session);
 		double total = 0.0;
 		for (CartItem c : cart) {
 			total += c.getFood().getPrice() * c.getQuantity();

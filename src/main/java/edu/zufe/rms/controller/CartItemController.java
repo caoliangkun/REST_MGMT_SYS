@@ -25,30 +25,29 @@ public class CartItemController {
 		Food food = foodService.findById(id);
 		Customer cust = (Customer) session.getAttribute("cust");
 		if (cust == null) {
-			return "redirect:login.html";
+			return "redirect:login";
 		}
 		
-		if (cartService.isFoodExist(food) == true) {
+		if (cartService.isFoodExist(food, cust) == true) {
 			// alter quantity
 			
-			cartService.quantityPlusOne(food);
+			cartService.quantityPlusOne(food, cust);
 		} else {
 			// save a new cart item
 			
-			if (cust instanceof Customer) {
-				cartService.saveCartItem(food, (Customer) cust);
-			} else {
-				cartService.saveCartItem(food);
-			}
+			
+				cartService.saveCartItem(food, cust);
+			
 			
 		}
 		return "redirect:menu.html";
 	}
 	
 	@GetMapping(path = "/deleteCartItem")
-	public String deleteCartItem(@RequestParam(name = "id") Long id) {
-		cartService.deleteById(id);
-		return "redirect:cart.html";
+	public String deleteCartItem(@RequestParam(name = "id") Long id, HttpSession session) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		cartService.deleteById(id, session);
+		return "redirect:cart";
 	}
 	
 }

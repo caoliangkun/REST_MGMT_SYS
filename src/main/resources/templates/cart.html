@@ -52,13 +52,22 @@
             </div>
             <div class="col-sm-5">
 
-                <a class="btn btn-primary" href="saveOrder">
+                <a class="btn btn-primary" href="saveOrder" onclick="check_table_id()">
                     Check out
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+<script th:inline="javascript">
+    function check_table_id() {
+        var table_id = [(${session.cust.tableId})];
+        if (table_id == 0) {
+            alert("Please choose a table before you checkout!")
+        }
+    }
+</script>
 
 </body>
 

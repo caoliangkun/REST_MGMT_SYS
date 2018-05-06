@@ -37,13 +37,15 @@ public class User implements Serializable {
 	
 	@Enumerated(EnumType.STRING)
 	private Position position;
+	
+	private boolean login;
 
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private StaffProfile profile;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<Food> foods;
-
+	
 	
 	
 	@OneToMany(mappedBy = "waiter")
@@ -155,6 +157,15 @@ public class User implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	public boolean isLogin() {
+		return login;
+	}
+
+	public void setLogin(boolean login) {
+		this.login = login;
 	}
 
 	public String toString() {

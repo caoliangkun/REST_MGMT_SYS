@@ -38,6 +38,9 @@ public class OrderController {
 	public String saveOrder(HttpSession session) {
 		Customer c = (Customer) session.getAttribute("cust");
 		Customer cust = custService.findByPhone(c.getPhone());
+		if (cust.getTableId() == 0) {
+			return "redirect:/showTables";
+		}
 		// Save a order record in table orders
 		Order order = orderService.save(cust);
 		
@@ -60,7 +63,7 @@ public class OrderController {
 		}
 		orderService.changeTotalPrice(addition, order);
 		// Delete the cart items 
-		cartService.deleteAll();
+		cartService.deleteAll(cust);
 		return "order_success";
 	}
 	

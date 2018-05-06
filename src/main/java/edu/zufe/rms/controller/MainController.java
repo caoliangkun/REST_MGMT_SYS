@@ -38,13 +38,16 @@ public class MainController {
 			if (user.getPosition() != null) {
 				model.addAttribute("position", user.getPosition());
 			}
+			user.setLogin(true);
+			userService.save(user);
+			session.setAttribute("user", user);
 			session.setAttribute("person", user);
-			User u = (User) session.getAttribute("person");
-			System.out.println(u.getPhone());
 			return "redirect:admin-index.html"; 
 		} else if (loginService.loginCust(phone, password)) {
 			Customer cust = customerService.findByPhone(phone);
 			cust.setTableId(Long.valueOf(0L));
+			cust.setLogin(true);
+			customerService.saveCust(cust);
 			session.setAttribute("person", cust);
 			session.setAttribute("cust", cust);
 			return "redirect:index.html";
@@ -71,7 +74,17 @@ public class MainController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
+		if (session.getAttribute("cust") != null) {
+			Customer cust = (Customer) session.getAttribute("cust");
+			cust.setLogin(false);
+			customerService.saveCust(cust);
+		} else if (session.getAttribute("user") != null) {
+			User user = (User) session.getAttribute("user");
+			user.setLogin(false);
+			userService.save(user);
+		}
 		session.removeAttribute("cust");
+		session.removeAttribute("person");
 		return "redirect:/login";
 	}
 }

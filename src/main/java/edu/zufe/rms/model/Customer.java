@@ -43,6 +43,7 @@ public class Customer implements Serializable {
 	private static Position position;
 	
 	private Long tableId;
+	private boolean login;
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Order> orders = new HashSet<>();
@@ -53,8 +54,10 @@ public class Customer implements Serializable {
 	@OneToMany(mappedBy = "customer")
 	private Set<CartItem> cart;
 	
+	
 	static {
 		position = Position.CUSTOMER;
+		
 	}
 
 	public Customer(String name, String phone, String password) {
@@ -66,6 +69,10 @@ public class Customer implements Serializable {
 
 	public Customer() {
 		super();
+		
+	}
+	public Customer(boolean login) {
+		this.login = login;
 	}
 
 	public Long getId() {
@@ -150,6 +157,14 @@ public class Customer implements Serializable {
 
 	public void setTableId(Long tableId) {
 		this.tableId = tableId;
+	}
+
+	public boolean isLogin() {
+		return login;
+	}
+
+	public void setLogin(boolean login) {
+		this.login = login;
 	}
 	
 	
