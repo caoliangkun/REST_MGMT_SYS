@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 @Entity
 @Table(name = "orders")
 public class Order implements Serializable{
@@ -24,10 +26,14 @@ public class Order implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@JSONField(name = "ID", ordinal = 1)
 	@Id
 	@GeneratedValue
 	@Column(name = "order_id")
 	private Long id;
+	
+	@JSONField(name = "TOTAL PRICE", ordinal = 2)
 	@Column(name = "total_price", nullable = false)
 	private Double totalPrice;
 	private String review;

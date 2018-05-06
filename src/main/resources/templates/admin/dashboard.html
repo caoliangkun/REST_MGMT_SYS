@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+<div th:insert="admin/admin-index :: nav"></div>
+<!--<div style="display: none">-->
+    <!--<span id="orderStats" th:text="${orderStats}">order stats</span>-->
+<!--</div>-->
+<div id="chart" style="height: 300px; width: 100%;"></div>
+<script type="text/javascript" th:inline="javascript">
+    window.onload = function () {
+        var dataPoints = [];
+        // var o = document.getElementById("orderStats").innerText;
+        var o = '[(${orderStats})]';
+        var datas = JSON.parse(o);
+
+        var chart = new CanvasJS.Chart("chart", {
+            title: {
+                text: "order stats"
+            },
+            data: [{
+                type: "column",
+                name: [(${year})],
+                showInLegend: true,
+                dataPoints: [
+                    {label: "Jan", y: datas.jan},
+                    {label: "Feb", y: datas.feb},
+                    {label: "Mar", y: datas.mar},
+                    {label: "Apr", y: datas.apr},
+                    {label: "May", y: datas.may},
+                    {label: "Jun", y: datas.jun},
+                    {label: "Jul", y: datas.jul},
+                    {label: "Aug", y: datas.aug},
+                    {label: "Sep", y: datas.sep},
+                    {label: "Oct", y: datas.oct},
+                    {label: "Nov", y: datas.nov},
+                    {label: "Dec", y: datas.dec}
+                ]
+            }
+            ],
+        });
+        chart.render();
+    }
+</script>
+
+</body>
+</html>
