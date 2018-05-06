@@ -73,7 +73,7 @@ public class OrderController {
 		if (cust == null) {
 			return "redirect:login";
 		}
-		List<Order> orders = orderService.findAll();
+		List<Order> orders = orderService.findAll(cust);
 		model.addAttribute("orders", orders);
 		return "orders_all";
 	}

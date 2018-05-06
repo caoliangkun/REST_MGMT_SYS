@@ -17,8 +17,9 @@ import edu.zufe.rms.repository.OrderRepository;
 public class OrderService {
 	@Autowired
 	private OrderRepository orderRepo;
-	
-	@Autowired CustomerService custService;
+
+	@Autowired
+	CustomerService custService;
 
 	public Order save(Customer cust) {
 		Order order = new Order();
@@ -26,12 +27,12 @@ public class OrderService {
 		order.setCustomer(cust);
 		return orderRepo.save(order);
 	}
-	
+
 	public List<Order> findAll() {
 		List<Order> orders = new ArrayList<>();
 		List<Order> notCompletedOrders = new ArrayList<>();
 		List<Order> completedOrders = new ArrayList<>();
-		for(Order order: orderRepo.findAll()) {
+		for (Order order : orderRepo.findAll()) {
 			if (order.getFinished() == null) {
 				notCompletedOrders.add(order);
 			} else {
@@ -58,13 +59,13 @@ public class OrderService {
 
 	public void save(Order order) {
 		orderRepo.save(order);
-		
+
 	}
 
 	public List<Order> findAll(String year) {
 		List<Order> orders = new ArrayList<>();
-		for(Order order: orderRepo.findAll()) {
-		
+		for (Order order : orderRepo.findAll()) {
+
 			if (order.getFinished() != null && order.getCreatedAt() != null) {
 				Calendar calendar = Calendar.getInstance();
 				calendar.setTime(order.getCreatedAt());
@@ -73,6 +74,24 @@ public class OrderService {
 				}
 			}
 		}
+		return orders;
+	}
+
+	public List<Order> findAll(Customer cust) {
+		List<Order> orders = new ArrayList<>();
+		List<Order> notCompletedOrders = new ArrayList<>();
+		List<Order> completedOrders = new ArrayList<>();
+		for (Order order : orderRepo.findAll()) {
+			if (order.getCustomer().getId().equals(cust.getId())) {
+				if (order.getFinished() == null) {
+					notCompletedOrders.add(order);
+				} else {
+					completedOrders.add(order);
+				}
+			}
+		}
+		orders.addAll(notCompletedOrders);
+		orders.addAll(completedOrders);
 		return orders;
 	}
 
