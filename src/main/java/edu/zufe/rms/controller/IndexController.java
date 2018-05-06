@@ -41,22 +41,7 @@ public class IndexController {
 		return "index";
 	}
 
-	@GetMapping(path = "/cart")
-	public String toCart(Model model, HttpSession session) {
-		Customer cust = (Customer) session.getAttribute("cust");
-		if (cust == null) {
-			return "redirect:/login";
-		}
-		
-		List<CartItem> cart = cartService.findAllByCust(session);
-		double total = 0.0;
-		for (CartItem c : cart) {
-			total += c.getFood().getPrice() * c.getQuantity();
-		}
-		model.addAttribute("cart", cart);
-		model.addAttribute("total", total);
-		return "cart";
-	}
+	
 
 	@GetMapping(path = "/menu.html")
 	public String toMenu(Model model) {
