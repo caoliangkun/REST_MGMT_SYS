@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +17,6 @@ import com.alibaba.fastjson.JSON;
 import edu.zufe.rms.model.Order;
 import edu.zufe.rms.model.OrderStats;
 import edu.zufe.rms.service.OrderService;
-import edu.zufe.rms.util.Stats;
 
 @Controller
 public class DashboardController {
@@ -24,7 +24,7 @@ public class DashboardController {
 	private OrderService orderService;
 
 	@GetMapping(path = "/dashboard")
-	public ModelAndView dashboard() {
+	public ModelAndView dashboard(@RequestParam(name = "year") String year) {
 		ModelAndView modelAndView = new ModelAndView("admin/dashboard");
 		modelAndView.addObject("greeting", "hello");
 		// OrderStats orderStats = new OrderStats(100, 150, 130, 120,
@@ -32,7 +32,7 @@ public class DashboardController {
 				// 130, 320, 240, 430);
 				OrderStats orderStats = new OrderStats();
 				Calendar calendar = Calendar.getInstance();
-				List<Order> orders = orderService.findAll();
+				List<Order> orders = orderService.findAll(year);
 				for (Order order : orders) {
 					if (order.getCreatedAt() != null) {
 						calendar.setTime(order.getCreatedAt());
@@ -65,7 +65,7 @@ public class DashboardController {
 				}
 				String orderStatsJson = JSON.toJSONString(orderStats);
 		modelAndView.addObject("orderStats", orderStatsJson);
-		modelAndView.addObject("year", "\"2018\"");
+		modelAndView.addObject("year", year);
 		return modelAndView;
 	}
 

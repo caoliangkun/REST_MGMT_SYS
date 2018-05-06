@@ -1,6 +1,7 @@
 package edu.zufe.rms.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -58,6 +59,21 @@ public class OrderService {
 	public void save(Order order) {
 		orderRepo.save(order);
 		
+	}
+
+	public List<Order> findAll(String year) {
+		List<Order> orders = new ArrayList<>();
+		for(Order order: orderRepo.findAll()) {
+		
+			if (order.getFinished() != null && order.getCreatedAt() != null) {
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(order.getCreatedAt());
+				if (calendar.get(Calendar.YEAR) == Integer.valueOf(year)) {
+					orders.add(order);
+				}
+			}
+		}
+		return orders;
 	}
 
 }

@@ -15,8 +15,23 @@
 <body>
 <div th:insert="admin/admin-index :: nav"></div>
 <!--<div style="display: none">-->
-    <!--<span id="orderStats" th:text="${orderStats}">order stats</span>-->
+<!--<span id="orderStats" th:text="${orderStats}">order stats</span>-->
 <!--</div>-->
+<form id="year" action="dashboard.html" th:action="dashboard">
+     <button class="btn btn-primary" type="submit">Select Year</button>
+    <select form="year" name="year" id="select">
+        <option value="2018" selected>2018</option>
+    </select>
+</form>
+<script>
+    for (var i = 2000; i < 2050; i++) {
+        var node = document.createElement("OPTION");
+        var textnode = document.createTextNode(i.toString());
+        node.appendChild(textnode);
+        node.setAttribute("value", i.toString());
+        document.getElementById("select").appendChild(node);
+    }
+</script>
 <div id="chart" style="height: 300px; width: 100%;"></div>
 <script type="text/javascript" th:inline="javascript">
     window.onload = function () {
@@ -31,7 +46,7 @@
             },
             data: [{
                 type: "column",
-                name: [(${year})],
+                name: "[(${year})]",
                 showInLegend: true,
                 dataPoints: [
                     {label: "Jan", y: datas.jan},
