@@ -3,8 +3,7 @@ package edu.zufe.rms.util;
 import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -62,8 +61,5 @@ public class Stats {
 		return orderStatsJson;
 	}
 	
-	@Test
-	public void test() {
-		Assert.assertEquals(true, orderService == null);
-	}
+
 }

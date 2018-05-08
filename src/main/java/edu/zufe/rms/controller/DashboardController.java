@@ -3,8 +3,8 @@ package edu.zufe.rms.controller;
 import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -75,8 +75,5 @@ public class DashboardController {
 		return "hello";
 	}
 
-	@Test
-	public void test() {
-		Assert.assertEquals(true, orderService == null);
-	}
+
 }

@@ -7,7 +7,7 @@
 	<groupId>edu.zufe</groupId>
 	<artifactId>restt_mgmt_sys</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>restt_mgmt_sys</name>
 	<description>Demo project for Spring Boot</description>

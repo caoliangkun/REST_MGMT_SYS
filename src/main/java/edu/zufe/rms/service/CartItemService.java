@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.junit.Assert;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -99,15 +97,4 @@ public class CartItemService {
 	}
 
 	
-	@Test
-	public void test() {
-		Food food = new Food();
-		food.setId(1L);
-		Customer cust = new Customer();
-		cust.setId(62L);
-		CartItem cartItem = new CartItem();
-		cartItem.setCustomer(cust);
-		cartItem.setFood(food);
-		Assert.assertEquals(cartItem.getFood().getId(), food.getId());
-	}
 }
