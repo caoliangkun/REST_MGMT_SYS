@@ -9,8 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>-->
+    <script src="../../static/js/canvasjs.min.js" th:src="@{/js/canvasjs.min.js}"></script>
 </head>
 <body>
 <div th:insert="admin/admin-index :: nav"></div>
@@ -32,17 +33,50 @@
         document.getElementById("select").appendChild(node);
     }
 </script>
-<div id="chart" style="height: 300px; width: 100%;"></div>
+<div id="orderStats" style="height: 300px; width: 100%;"></div>
+
+<div id="incomeStats" style="height: 300px; width: 100%;"></div>
+
 <script type="text/javascript" th:inline="javascript">
     window.onload = function () {
         var dataPoints = [];
-        // var o = document.getElementById("orderStats").innerText;
         var o = '[(${orderStats})]';
         var datas = JSON.parse(o);
 
-        var chart = new CanvasJS.Chart("chart", {
+        var chart = new CanvasJS.Chart("orderStats", {
             title: {
                 text: "order stats"
+            },
+            data: [{
+                type: "column",
+                name: "[(${year})]",
+                showInLegend: true,
+                dataPoints: [
+                    {label: "Jan", y: datas.jan},
+                    {label: "Feb", y: datas.feb},
+                    {label: "Mar", y: datas.mar},
+                    {label: "Apr", y: datas.apr},
+                    {label: "May", y: datas.may},
+                    {label: "Jun", y: datas.jun},
+                    {label: "Jul", y: datas.jul},
+                    {label: "Aug", y: datas.aug},
+                    {label: "Sep", y: datas.sep},
+                    {label: "Oct", y: datas.oct},
+                    {label: "Nov", y: datas.nov},
+                    {label: "Dec", y: datas.dec}
+                ]
+            }
+            ],
+        });
+        chart.render();
+
+         dataPoints = [];
+         o = '[(${incomeStats})]';
+         datas = JSON.parse(o);
+
+         chart = new CanvasJS.Chart("incomeStats", {
+            title: {
+                text: "payment stats"
             },
             data: [{
                 type: "column",
