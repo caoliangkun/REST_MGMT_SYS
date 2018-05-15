@@ -53,6 +53,8 @@ public class Customer implements Serializable {
 	
 	@OneToMany(mappedBy = "customer")
 	private Set<CartItem> cart;
+	@OneToMany(mappedBy = "customer")
+	private Set<Favorite> favorites;
 	
 	
 	static {

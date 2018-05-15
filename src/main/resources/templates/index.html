@@ -14,8 +14,7 @@
 	<!--href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">-->
 <!--<link rel="stylesheet"-->
 	<!--href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <!--<link rel="stylesheet"-->
 	<!--href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">-->
 <!--<link rel="stylesheet"-->
@@ -71,17 +70,24 @@
 				style="font-size: 20PX; color: rgb(30, 164, 221); height: 460px;">
 				<div
 					class="col-12 col-md-12 offset-xl-0 align-content-center align-self-center">
-					<a href="#"><span
-						class="flex-column align-items-center align-content-center">STORE
-							NAME</span><i class="icon ion-android-playstore float-right"></i></a>
+					<a href="about.html" th:href="@{/about}">
+						<span class="flex-column align-items-center align-content-center">
+							Riverland Hokkien Chinese Restaurant
+						</span>
+						<i class="icon ion-android-playstore float-right"></i>
+					</a>
 				</div>
 				<div class="col-12 col-md-12 offset-xl-0 align-self-center">
-					<a href="menu.html"><span>ORDER NOW</span><i
-						class="icon ion-fork float-right"></i></a>
+					<a href="menu.html" th:href="@{/menu}">
+						<span>ORDER NOW</span>
+						<i class="icon ion-fork float-right"></i>
+					</a>
 				</div>
 				<div class="col-12 col-md-12 offset-xl-0 align-self-center">
-					<a href="favorite.html"><span>MY FAVORITE</span><i
-						class="icon ion-star float-right"></i></a>
+					<a href="favorite.html" th:href="@{/favorite}">
+						<span>MY FAVORITE</span>
+						<i class="icon ion-star float-right"></i>
+					</a>
 				</div>
 				<div class="col-12 col-md-12 offset-xl-0 align-self-center">
 					<a href="#"><span>PROMOTION</span><i

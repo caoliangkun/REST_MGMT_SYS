@@ -49,21 +49,33 @@ public class CartItemController {
 		if (cust == null) {
 			return "redirect:login";
 		}
-
-		
 		if (cartService.isFoodExist(food, session) == true) {
 			// alter quantity
-			
 			cartService.quantityPlusOne(food, cust);
 		} else {
 			// save a new cart item
-			
-			
 				cartService.saveCartItem(food, cust);
 			
 			
 		}
-		return "redirect:menu.html";
+		return "redirect:menu";
+	}
+	
+	@GetMapping(path = "/favoriteToCart")
+	public String favoriteToCart(@RequestParam(name = "id") Long id, HttpSession session) {
+		Food food = foodService.findById(id);
+		Customer cust = (Customer) session.getAttribute("cust");
+		if (cust == null) {
+			return "redirect:login";
+		}
+		if (cartService.isFoodExist(food, session) == true) {
+			// alter quantity
+			cartService.quantityPlusOne(food, cust);
+		} else {
+			// save a new cart item
+				cartService.saveCartItem(food, cust);
+		}
+		return "redirect:favorite";
 	}
 	
 	

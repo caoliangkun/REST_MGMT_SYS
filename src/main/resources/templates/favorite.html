@@ -1,72 +1,61 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>restt_mgmt_sys</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Favorite</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Kaushan+Script">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
-    <link rel="stylesheet" href="../static/css/styles.min.css">
 </head>
-
 <body>
-    <!-- nav -->
-	<div th:insert="navigation :: nav"></div>
-    <section>
-        <div class="row" style="margin:10px;">
-            <div class="col d-flex float-left align-self-center co-sm-2" id="back"><i class="typcn typcn-arrow-back float-left" style="font-size:30px;"></i></div>
-            <div class="col d-flex justify-content-center align-self-center" id="header" style="font-size:30px;"><span>My favorite</span></div>
-            <div class="col"></div>
-        </div>
-        <div class="row" style="margin:10px;">
-            <div class="col">
-                <div class="container d-flex justify-content-between">
-                    <div class="col d-flex justify-content-center align-items-center col-sm-3"><img alt="img"></div>
-                    <div class="col d-flex flex-column justify-content-around col-sm-3">
-                        <div><span>Latte</span></div>
-                        <div><span>big/hot</span></div>
-                        <div><span>RMB; 27</span></div>
-                    </div>
-                    <div class="col d-flex flex-column justify-content-between col-sm-3"><button class="btn btn-primary btn-sm" type="button">remove</button><button class="btn btn-primary btn-sm" type="button">order</button></div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin:10px;">
-            <div class="col">
-                <div class="container d-flex justify-content-between">
-                    <div class="col d-flex justify-content-center align-items-center col-sm-3"><img alt="img"></div>
-                    <div class="col d-flex flex-column justify-content-around col-sm-3">
-                        <div><span>Latte</span></div>
-                        <div><span>big/hot</span></div>
-                        <div><span>RMB; 27</span></div>
-                    </div>
-                    <div class="col d-flex flex-column justify-content-between col-sm-3"><button class="btn btn-primary btn-sm" type="button">remove</button><button class="btn btn-primary btn-sm" type="button">order</button></div>
-                </div>
-            </div>
-        </div>
-        <div class="row" style="margin:10px;">
-            <div class="col">
-                <div class="container d-flex justify-content-between">
-                    <div class="col d-flex justify-content-center align-items-center col-sm-3"><img alt="img"></div>
-                    <div class="col d-flex flex-column justify-content-around col-sm-3">
-                        <div><span>Latte</span></div>
-                        <div><span>big/hot</span></div>
-                        <div><span>RMB; 27</span></div>
-                    </div>
-                    <div class="col d-flex flex-column justify-content-between col-sm-3"><button class="btn btn-primary btn-sm" type="button">remove</button><button class="btn btn-primary btn-sm" type="button">order</button></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
-</body>
+<!-- nav -->
+<div th:insert="nav :: nav"></div>
 
+<table class="table">
+    <thead>
+    <tr>
+        <td>
+            Image
+        </td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody th:each="f : ${favorites}">
+    <tr>
+        <td>
+            <img src="" alt="food img">
+        </td>
+        <td th:text="${f.food.name}">
+            Beef Noodle
+        </td>
+        <td th:text="${f.food.price}">
+            18
+        </td>
+        <td>
+            <div class="row d-flex">
+                <div class="col-5">
+                    <form action="favorite.html" th:action="@{deleteFavorite}" class="justify-content-end">
+                        <input name="id" value="1" th:value="${f.id}" style="display: none">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                </div>
+
+                <div class="col-5">
+                    <form action="favorite.html" th:action="@{/favoriteToCart}" class="justify-content-start">
+                        <input name="id" value="1" th:value="${f.food.id}" style="display: none">
+                        <button type="submit" class="btn btn-primary">Add To Cart</button>
+                    </form>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
 </html>

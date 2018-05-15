@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navContent">
             <ul class="navbar-nav">
                 <li id="menu" class="nav-item">
-                    <a class="nav-link" href="menu.html">Menu</a>
+                    <a class="nav-link" href="menu.html" th:href="@{/menu}">Menu</a>
                 </li>
                 <li id="cart" class="nav-item">
                     <a class="nav-link" href="cart.html" th:href="@{/cart}">Cart</a>
@@ -50,17 +50,18 @@
                 </li>
 
             </ul>
-        </div>
-        <span th:text="${session.person.position}" class="text-white" id="position" style="">
-            name
-        </span>
-        <span class="navbar-text actions">
+            <span class="navbar-text actions">
             <a id="login" href="login.html" th:href="@{/login}" class="login">Log In</a>
             <a id="logout" href="login.html" th:href="@{/logout}" class="login">Log Out</a>
             <a id="sign_up" class="btn btn-primary action-button" role="button" href="register.html">
                 Sign Up
             </a>
         </span>
+        </div>
+        <span th:text="${session.person.position}" class="text-white" id="position" style="display: none">
+            name
+        </span>
+
     </nav>
     <script th:inline="javascript">
         if ([(${session.person.login})] == true) {

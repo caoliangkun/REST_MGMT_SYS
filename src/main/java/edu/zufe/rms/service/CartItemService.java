@@ -90,7 +90,7 @@ public class CartItemService {
 //		Customer cust = (Customer) session.getAttribute("cust");
 		List<CartItem> cart = new ArrayList<>();
 		for (CartItem c : findAll()) {
-			if (c.getCustomer().getId() == cust.getId())
+			if (c.getCustomer().getId().compareTo(cust.getId()) == 0)
 				cart.add(c);
 		}
 		return cart;

@@ -43,7 +43,7 @@ public class IndexController {
 
 	
 
-	@GetMapping(path = "/menu.html")
+	@GetMapping(path = "/menu")
 	public String toMenu(Model model) {
 		List<Food> foods = foodService.findAll();
 		List<Food> chineseDishes = new ArrayList<>();
@@ -97,7 +97,10 @@ public class IndexController {
 		return "register";
 	}
 	
-	
+	@GetMapping(path = "/about")
+	public String toAbout() {
+		return "about";
+	}
 	
 	
 	
