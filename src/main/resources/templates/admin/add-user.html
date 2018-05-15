@@ -25,19 +25,54 @@
 <body>
 <div th:insert="admin/admin-index :: nav"></div>
 
-<form class="form-control" action="createUser" method="get" id="user">
-    name: <input name="name" type="text"><br>
-    phone: <input name="phone" type="tel"><br>
-    password: <input id="pwd" name="pwd" type="password"><br>
-    repeat password: <input id="rpwd" name="rpwd" type="password" onchange="checkPwd()"><br>
-    position:
-    <select name="position" form="user">
-        <option value="EMPLOYEE">Employee</option>
-        <option value="MANAGER">Manager</option>
-        <option value="GUEST">Guest</option>
-    </select><br>
-
-    <input type="submit" value="submit">
+<form class="container bg-secondary text-white" action="createUser" method="get" id="user">
+    <div class="row">
+        <div class="col-3">
+            name:
+        </div>
+        <div class="col-9">
+            <input class="form-control" name="name" type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            phone:
+        </div>
+        <div class="col-9">
+            <input class="form-control" name="phone" type="tel">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            password:
+        </div>
+        <div class="col-9">
+            <input class="form-control" id="pwd" name="pwd" type="password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            repeat password:
+        </div>
+        <div class="col-9">
+            <input class="form-control" id="rpwd" name="rpwd" type="password" onchange="checkPwd()">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            position:
+        </div>
+        <div class="col-9">
+            <select class="form-control" name="position" form="user">
+                <option value="EMPLOYEE">Employee</option>
+                <option value="MANAGER">Manager</option>
+                <option value="GUEST">Guest</option>
+            </select>
+        </div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+        <button type="submit" class="btn btn-info">Save It</button>
+    </div>
 </form>
 
 </body>

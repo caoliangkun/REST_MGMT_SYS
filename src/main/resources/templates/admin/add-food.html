@@ -13,20 +13,48 @@
 <body>
     <div th:insert="admin/admin-index :: nav"></div>
 
-    <form action="addFood" method="get" id="food">
-        name: <input name="name" type="text"><br>
-        price: <input name="price" type=""><br>
-        applied:
-        <input type="radio" name="applied" value="yes" checked> Yes
-        <input type="radio" name="applied" value="no"> No<br>
-        food type:
-        <select name="foodType" form="food">
-            <option value="">Please select</option>
-            <option value="Noodle">Noodle</option>
-            <option value="ChineseDish">Chinese Dish</option>
-            <option value="Drink">Drink</option>
-        </select><br>
-        <input type="submit" value="submit">
+    <form class="container bg-secondary text-white" action="addFood" method="get" id="food">
+        <div class="row">
+            <div class="col-3">
+                name:
+            </div>
+            <div class="col-9">
+                <input class="form-control" name="name" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                price:
+            </div>
+            <div class="col-9">
+                <input class="form-control" name="price" type="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                applied:
+            </div>
+            <div class="col-9">
+                <input type="radio" name="applied" value="yes" checked> Yes
+                <input type="radio" name="applied" value="no"> No<br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                food type:
+            </div>
+            <div class="col-9">
+                <select class="form-control" name="foodType" form="food">
+                    <option value="">Please select</option>
+                    <option value="Noodle">Noodle</option>
+                    <option value="ChineseDish">Chinese Dish</option>
+                    <option value="Drink">Drink</option>
+                </select>
+            </div>
+        </div>
+        <div class="d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-info">Save It</button>
+        </div>
     </form>
 
 </body>

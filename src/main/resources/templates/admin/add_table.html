@@ -14,15 +14,15 @@
 <div th:insert="admin/admin-index :: nav"></div>
 
 <div class="container">
-    <form class="form-control" action="/addTable">
+    <form class="form-control bg-secondary text-white" action="/addTable">
         <label for="table_id">Table Id</label><br>
         <input id="table_id" class="form-group" type="number" name="tableId"><br>
         <label for="capacity">Capacity:</label><br>
         <input class="input-group" name="capacity" type="number" id="capacity"><br>
         <label for="status">Status:</label><br>
         <input class="input-group" name="status" type="text" id="status" value="TO_USE"><br>
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">Add</button>
+        <div class="d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-info">Save It</button>
         </div>
     </form>
 </div>

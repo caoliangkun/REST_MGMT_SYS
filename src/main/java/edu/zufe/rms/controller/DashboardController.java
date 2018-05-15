@@ -87,7 +87,7 @@ public class DashboardController {
 	private PaymentStats getPaymentStats(String year) {
 		PaymentStats paymentStats = new PaymentStats();
 		Calendar calendar = Calendar.getInstance();
-		List<Payment> payments = paymentService.findAll();
+		List<Payment> payments = paymentService.findAll(year);
 		for (Payment payment : payments) {
 			if (payment.getPayAt() != null) {
 				calendar.setTime(payment.getPayAt());
