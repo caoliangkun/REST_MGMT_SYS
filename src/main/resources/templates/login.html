@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
     <link rel="stylesheet" href="/../restt_mgmt_sys/src/main/resources/static/css/styles.min.css"
         th:href="@{/css/styles.min.css}">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
 </head>
 
 <body background="../static/img/meeting.jpg" th:background="@{/img/meeting.jpg}">
@@ -23,8 +24,22 @@
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             <div class="form-group"><input class="form-control" type="tel" name="phone" required="" placeholder="Phone number" maxlength="11" minlength="11" pattern="\d{11}" autocomplete="on" inputmode="tel"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
+
+
+
+
+            <div class="form-group">
+                <a class="btn btn-primary btn-block" type="button" href="register.html" th:href="@{/register.html}">
+                    Sign Up
+                </a>
+            </div>
+            <a class="forgot" href="index.html" th:href="@{/index.html}">
+                Guest Log In
+            </a>
+            <a href="#" class="forgot">Forgot your email or password?</a>
         </form>
+
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>

@@ -43,7 +43,7 @@
                 <li id="mine" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Mine</a>
                     <div class="dropdown-menu">
-                        <a href="profile.html" th:href="@{/profile}" class="dropdown-item">Profile</a>
+                        <a id="profile" href="profile.html" th:href="@{/profile}" class="dropdown-item">Profile</a>
                         <a href="#" class="dropdown-item"></a>
                         <a href="#" class="dropdown-item"></a>
                     </div>
@@ -51,8 +51,8 @@
 
             </ul>
             <span class="navbar-text actions">
-            <a id="login" href="login.html" th:href="@{/login}" class="login">Log In</a>
-            <a id="logout" href="login.html" th:href="@{/logout}" class="login">Log Out</a>
+            <a id="login" role="button"  href="login.html" th:href="@{/login}" class="btn btn-primary action-button">Log In</a>
+            <a id="logout" href="login.html" th:href="@{/logout}" class="btn btn-primary action-button">Log Out</a>
             <a id="sign_up" class="btn btn-primary action-button" role="button" href="register.html">
                 Sign Up
             </a>
@@ -66,6 +66,7 @@
     <script th:inline="javascript">
         if ([(${session.person.login})] == true) {
             document.getElementById("login").style.display = "none";
+            document.getElementById("sign_up").style.display = "none";
         } else {
             document.getElementById("logout").style.display = "none";
         }
@@ -85,6 +86,7 @@
             document.getElementById("cart").style.display = "none";
             document.getElementById("orders").style.display = "none";
             document.getElementById("tables").style.display = "none";
+            document.getElementById("profile").style.display = "none";
         }
 
     </script>

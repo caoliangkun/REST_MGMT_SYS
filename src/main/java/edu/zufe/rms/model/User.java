@@ -32,6 +32,8 @@ public class User implements Serializable {
 	private String phone;
 	@Column(nullable = false)
 	private String name;
+	
+	private String sex;
 	@Column(nullable = false)
 	private String password;
 	
@@ -171,5 +173,15 @@ public class User implements Serializable {
 	public String toString() {
 		return getName() + ", " + getPassword();
 	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	
+	
 
 }
