@@ -31,6 +31,8 @@ public class Customer implements Serializable {
 	@Column(name = "customer_id")
 	private Long id;
 	private String name;
+	
+	private String sex;
 	@Column(nullable = false)
 	private String phone;
 	
@@ -167,6 +169,22 @@ public class Customer implements Serializable {
 
 	public void setLogin(boolean login) {
 		this.login = login;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public Set<Favorite> getFavorites() {
+		return favorites;
+	}
+
+	public void setFavorites(Set<Favorite> favorites) {
+		this.favorites = favorites;
 	}
 	
 	

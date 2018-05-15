@@ -23,7 +23,7 @@ public class MainController {
 	UserService userService;
 	@Autowired
 	CustomerService customerService;
-	
+
 	@GetMapping("/")
 	public String defaultPage() {
 		return "redirect:index.html";
@@ -42,7 +42,7 @@ public class MainController {
 			userService.save(user);
 			session.setAttribute("user", user);
 			session.setAttribute("person", user);
-			return "redirect:admin-index.html"; 
+			return "redirect:admin-index.html";
 		} else if (loginService.loginCust(phone, password)) {
 			Customer cust = customerService.findByPhone(phone);
 			cust.setTableId(Long.valueOf(0L));
@@ -51,12 +51,10 @@ public class MainController {
 			session.setAttribute("person", cust);
 			session.setAttribute("cust", cust);
 			return "redirect:index.html";
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
 
 	@PostMapping(path = "/register")
 	public String register(@RequestParam(name = "name") String name, @RequestParam(name = "phone") String phone,
@@ -71,7 +69,7 @@ public class MainController {
 		customerService.saveCust(cust);
 		return "redirect:login";
 	}
-	
+
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		if (session.getAttribute("cust") != null) {
@@ -86,5 +84,28 @@ public class MainController {
 		session.removeAttribute("cust");
 		session.removeAttribute("person");
 		return "redirect:/login";
+	}
+
+	@GetMapping(path = "/updateProfile")
+	public String updateProfile(@RequestParam(name = "name") String name, @RequestParam(name = "phone") String phone,
+			@RequestParam(name = "password") String password, @RequestParam(name = "confirmPswd") String comfirmPswd,
+			@RequestParam(name = "sex") String sex, HttpSession session) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		if (cust != null && phone.length() == 11) {
+			if (name != null)
+				cust.setName(name);
+			if (phone != null)
+				cust.setPhone(phone);
+			if (phone != null)
+				cust.setPassword(password);
+			if (sex != null)
+				cust.setSex(sex);
+			if (password != null && password.compareTo(comfirmPswd) == 0)
+				cust.setPassword(password);
+			customerService.saveCust(cust);
+		}
+
+		System.out.println("update profile");
+		return "redirect:/profile";
 	}
 }

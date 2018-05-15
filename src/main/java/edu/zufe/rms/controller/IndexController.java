@@ -82,8 +82,10 @@ public class IndexController {
 		return "orders_c";
 	}
 
-	@GetMapping(path = "/profile.html")
-	public String toProfile() {
+	@GetMapping(path = "/profile")
+	public String toProfile(HttpSession session, Model model) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		model.addAttribute("cust", cust);
 		return "profile";
 	}
 
