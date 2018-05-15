@@ -3,10 +3,12 @@ package edu.zufe.rms.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -33,7 +35,7 @@ public class Table implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private TableStatus tableStatus;
 	
-	@OneToMany(mappedBy = "table")
+	@OneToMany(mappedBy = "table", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<OrderItem> orderItems;
 	
 	@OneToOne

@@ -2,6 +2,7 @@ package edu.zufe.rms.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class CartItem {
 	
 	
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "food_id")
 	private Food food;
 	

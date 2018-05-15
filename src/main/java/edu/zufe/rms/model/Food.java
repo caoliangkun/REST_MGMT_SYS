@@ -62,13 +62,14 @@ public class Food implements Serializable {
 	@Enumerated(value = EnumType.STRING)
 	private FoodType foodType;
 	
-	@OneToMany(mappedBy = "food")
+	
+	@OneToMany(mappedBy = "food", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<CartItem> cart;
 	
-	@OneToMany(mappedBy = "food")
+	@OneToMany(mappedBy = "food", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<OrderItem> orderItems;
 	
-	@OneToMany(mappedBy = "food")
+	@OneToMany(mappedBy = "food", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Favorite> favorites;
 
 	public Food() {

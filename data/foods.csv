@@ -1,0 +1,17 @@
+"food_id";"applied";"food_type";"last_update_at";"name";"price";"rating";"img_id";"last_update_by"
+3;"yes";"ChineseDish";"";"SPRING ROLLS";15.0;"";0;0
+4;"yes";"Noodle";"";"BEEF NOODLE";16.0;"";0;0
+5;"yes";"Drink";"";"WATER";2.0;"";0;0
+7;"yes";"ChineseDish";"";"LEMON CHICKEN";10.5;"";0;0
+8;"yes";"ChineseDish";"";"FRIED RICE";7.5;"";0;0
+9;"yes";"ChineseDish";"";"BLACK BEAN BEEF";10.5;"";0;0
+10;"yes";"ChineseDish";"";"SATAY BEEF";10.5;"";0;0
+11;"yes";"Noodle";"";"SWEET SPECIAL";11.5;"";0;0
+12;"yes";"Noodle";"";"HOT SPECIAL";11.5;"";0;0
+13;"yes";"Noodle";"";"SINGAPORE NOODLE";11.5;"";0;0
+14;"yes";"Noodle";"";"HOKKIEN MEE";11.5;"";0;0
+15;"yes";"Noodle";"";"BLACK BEAN NOODLE";11.5;"";0;0
+16;"yes";"Drink";"";"SPRITE";3.5;"";0;0
+17;"yes";"Drink";"";"COCA COLA";3.5;"";0;0
+18;"yes";"Drink";"";"RED WINE";50.0;"";0;0
+19;"yes";"Drink";"";"ORANGE JUICE";5.0;"";0;0
