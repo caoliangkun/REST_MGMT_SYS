@@ -108,4 +108,9 @@ public class MainController {
 		System.out.println("update profile");
 		return "redirect:/profile";
 	}
+	
+	@GetMapping(path = "/error")
+	public String toError() {
+		return "error";
+	}
 }

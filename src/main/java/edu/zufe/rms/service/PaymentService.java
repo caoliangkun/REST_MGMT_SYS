@@ -41,6 +41,5 @@ public class PaymentService {
 
 	public Payment save(Payment payment) {
 		return payRepo.save(payment);
-
 	}
 }

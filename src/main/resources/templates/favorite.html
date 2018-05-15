@@ -17,12 +17,12 @@
 <table class="table">
     <thead>
     <tr>
-        <td>
+        <th>
             Image
-        </td>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Action</td>
+        </th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody th:each="f : ${favorites}">
@@ -37,22 +37,20 @@
             18
         </td>
         <td>
-            <div class="row d-flex">
+            <div class="row d-flex flex-column">
                 <div class="col-5">
                     <form action="favorite.html" th:action="@{deleteFavorite}" class="justify-content-end">
                         <input name="id" value="1" th:value="${f.id}" style="display: none">
                         <button type="submit" class="btn btn-primary">Delete</button>
                     </form>
                 </div>
-
                 <div class="col-5">
                     <form action="favorite.html" th:action="@{/favoriteToCart}" class="justify-content-start">
                         <input name="id" value="1" th:value="${f.food.id}" style="display: none">
-                        <button type="submit" class="btn btn-primary">Add To Cart</button>
+                        <button type="submit" class="btn btn-primary">Order</button>
                     </form>
                 </div>
             </div>
-
         </td>
     </tr>
     </tbody>

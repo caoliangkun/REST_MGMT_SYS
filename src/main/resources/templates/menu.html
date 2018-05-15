@@ -55,17 +55,17 @@
         <li data-target="#carousel-1" data-slide-to="2"></li>
     </ol>
 </div>
-<ul class="nav nav-tabs sticky-top nav-pills bg-white" id="scrollspy" style="background-color:rgba(255,255,255,0.24);">
-    <li class="nav-item"><a class="nav-link active" href="#c">Chinese Dishes</a></li>
-    <li class="nav-item"><a class="nav-link" href="#n">Noodle</a></li>
-    <li class="nav-item"><a class="nav-link" href="#d">Drink</a></li>
+<ul class="nav nav-tabs sticky-top nav-pills bg-white row" id="scrollspy" style="background-color:rgba(255,255,255,0.24);">
+    <li class="nav-item col-4"><a class="nav-link active" href="#c">Chinese Dishes</a></li>
+    <li class="nav-item col-4"><a class="nav-link" href="#n">Noodle</a></li>
+    <li class="nav-item col-4"><a class="nav-link" href="#d">Drink</a></li>
 </ul>
 
 
 <div class="">
     <div id="c" class="container-fluid">
         <div th:each="c : ${chineseDishes}" class="row">
-            <div class="col-1">
+            <div class="col-2 co-sm-2">
                 <form action="menu.html" th:action="@{/saveFavorite}">
                     <input type="text" name="id" value="1" th:value="${c.id}" style="display: none">
                     <button type="submit" class="btn btn-link">
@@ -76,7 +76,7 @@
             <div class="col-5">
                 <span th:text="${c.name}">SPRING ROLLS</span>
             </div>
-            <div class="col-3">
+            <div class="col-2 co-sm-2">
                 <span th:text="${c.price}">10.0</span>
             </div>
             <div class="col-3">
@@ -91,7 +91,7 @@
 
     <div id="n" class="container-fluid">
         <div th:each="n : ${noodle}" class="row">
-            <div class="col-1">
+            <div class="col-2 co-sm-2">
                 <form action="menu.html" th:action="@{/saveFavorite}">
                     <input type="text" name="id" value="1" th:value="${n.id}" style="display: none">
                     <button type="submit" class="btn btn-link">
@@ -102,7 +102,7 @@
             <div class="col-5">
                 <span th:text="${n.name}">SPRING ROLLS</span>
             </div>
-            <div class="col-3">
+            <div class="col-2 co-sm-2">
                 <span th:text="${n.price}">10.0</span>
             </div>
             <div class="col-3">
@@ -117,7 +117,7 @@
 
     <div id="d" class="container-fluid">
         <div th:each="d : ${drink}" class="row">
-            <div class="col-1">
+            <div class="col-2 col-sm-2">
                 <form action="menu.html" th:action="@{/saveFavorite}">
                     <input type="text" name="id" value="1" th:value="${d.id}" style="display: none">
                     <button type="submit" class="btn btn-link">
@@ -128,7 +128,7 @@
             <div class="col-5">
                 <span th:text="${d.name}">SPRING ROLLS</span>
             </div>
-            <div class="col-3">
+            <div class="col-2 co-sm-2">
                 <span th:text="${d.price}">10.0</span>
             </div>
             <div class="col-3">
