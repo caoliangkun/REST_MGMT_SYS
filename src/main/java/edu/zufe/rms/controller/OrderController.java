@@ -73,9 +73,31 @@ public class OrderController {
 		if (cust == null) {
 			return "redirect:login";
 		}
-		List<Order> orders = orderService.findAll(cust);
+		List<Order> orders = orderService.findAll(cust, 1);
 		model.addAttribute("orders", orders);
 		return "orders_all";
+	}
+	
+	@GetMapping(path = "/orders_c")
+	public String toCOrders(Model model, HttpSession session) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		if (cust == null) {
+			return "redirect:login";
+		}
+		List<Order> orders_c = orderService.findAll(cust, 2);
+		model.addAttribute("orders", orders_c);
+		return "orders_c";
+	}
+	
+	@GetMapping(path = "/orders_nc")
+	public String toNCOrders(Model model, HttpSession session) {
+		Customer cust = (Customer) session.getAttribute("cust");
+		if (cust == null) {
+			return "redirect:login";
+		}
+		List<Order> orders_nc = orderService.findAll(cust, 3);
+		model.addAttribute("orders", orders_nc);
+		return "orders_nc";
 	}
 	
 }

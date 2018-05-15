@@ -42,6 +42,22 @@ public class PaymentController {
 		return "redirect:allOrders";
 	}
 	
+	@GetMapping("/pay_nc")
+	public String payNC(@RequestParam(name = "id") String id, HttpSession session) {
+		Order order = orderService.findById(id);
+		System.out.println(order.getId());
+		order.setFinished(true);
+		order.setUpdateAt(new Date());
+		orderService.save(order);
+		Customer cust = (Customer) session.getAttribute("cust");
+		Payment payment = new Payment();
+		payment.setAmount(order.getTotalPrice());
+		payment.setCustomer(cust);
+		payment.setPayAt(new Date());
+		payService.save(payment);
+		return "redirect:/orders_nc";
+	}
+	
 	@GetMapping("/showPayments")
 	public String showPayments(Model model) {
 		List<Payment> payments = payService.findAll();

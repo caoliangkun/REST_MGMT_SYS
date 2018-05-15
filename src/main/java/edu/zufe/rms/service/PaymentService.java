@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.zufe.rms.model.Payment;
 import edu.zufe.rms.repository.PaymentRepository;
+import edu.zufe.rms.util.SortUtil;
 
 @Service
 public class PaymentService {
@@ -34,6 +35,7 @@ public class PaymentService {
 		for (Payment p : payRepo.findAll()) {
 					payments.add(p);
 		}
+		SortUtil.sortByPayDate(payments);
 		return payments;
 	}
 

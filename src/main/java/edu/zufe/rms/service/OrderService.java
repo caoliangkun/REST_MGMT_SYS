@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import edu.zufe.rms.model.Customer;
 import edu.zufe.rms.model.Order;
 import edu.zufe.rms.repository.OrderRepository;
+import edu.zufe.rms.util.SortUtil;
 
 @Service
 public class OrderService {
@@ -77,7 +78,7 @@ public class OrderService {
 		return orders;
 	}
 
-	public List<Order> findAll(Customer cust) {
+	public List<Order> findAll(Customer cust, int i) {
 		List<Order> orders = new ArrayList<>();
 		List<Order> notCompletedOrders = new ArrayList<>();
 		List<Order> completedOrders = new ArrayList<>();
@@ -92,7 +93,18 @@ public class OrderService {
 		}
 		orders.addAll(notCompletedOrders);
 		orders.addAll(completedOrders);
-		return orders;
+		SortUtil.sortByDate(orders);
+		SortUtil.sortByDate(completedOrders);
+		SortUtil.sortByDate(notCompletedOrders);
+		
+		if (i == 1)
+			return orders;
+		else if (i == 2)
+			return completedOrders;
+		else if (i == 3)
+			return notCompletedOrders;
+		else 
+			return null;
 	}
 
 }
