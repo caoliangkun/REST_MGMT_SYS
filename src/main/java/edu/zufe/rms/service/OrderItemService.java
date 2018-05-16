@@ -2,6 +2,7 @@ package edu.zufe.rms.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,15 @@ public class OrderItemService {
 				orderItems.add(oi);
 		}
 		return orderItems;
+	}
+
+	public OrderItem findById(String id) {
+		Optional<OrderItem> o = orderItemRepo.findById(Long.valueOf(id));
+		OrderItem oi = null;
+		if (o.isPresent()) {
+			oi = o.get();
+		}
+		return oi;
 	}
 
 }

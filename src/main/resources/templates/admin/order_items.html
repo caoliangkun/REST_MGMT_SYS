@@ -31,8 +31,8 @@
             <td th:text="${oi.orderItemStatus}">COOKING</td>
             <td th:text="${oi.table.id}">1</td>
             <td>
-                <form action="order_items.html">
-                    <button type="submit" value="1" class="btn btn-primary">Done</button>
+                <form action="order_items.html" th:action="@{updateOrderItemStatus}">
+                    <button type="submit" name="id" value="1" th:value="${oi.id}" class="btn btn-primary">Done</button>
                 </form>
             </td>
         </tr>
