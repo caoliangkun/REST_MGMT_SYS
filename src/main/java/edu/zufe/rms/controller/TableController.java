@@ -47,7 +47,7 @@ public class TableController {
 	@GetMapping(path = "/deleteTable")
 	public String deleteTable(@RequestParam(name = "id") String id) {
 		tableService.deleteById(id);
-		return "admin/admin_tables";
+		return "redirect:/showTablesForAdmin";
 	}
 	
 	@GetMapping(path = "/updateTable")
@@ -78,6 +78,11 @@ public class TableController {
 		Customer cust = (Customer) session.getAttribute("cust");
 		cust.setTableId(Long.valueOf(id));
 		custService.saveCust(cust);
+		
+		// Change the status of the table
+		Table t = tableService.findById(Long.valueOf(id));
+		t.setTableStatus(TableStatus.valueOf("IN_USE"));
+		tableService.save(t);
 		return "redirect:/showTables";
 	}
 	

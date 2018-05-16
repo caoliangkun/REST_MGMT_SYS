@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import edu.zufe.rms.enums.TableStatus;
 import edu.zufe.rms.model.Table;
 import edu.zufe.rms.repository.TableRepository;
+import edu.zufe.rms.util.SortUtil;
 
 @Service
 public class TableService {
@@ -21,8 +22,8 @@ public class TableService {
 		return tableRepo.save(table);
 	}
 
-	public Table save() {
-		return tableRepo.save(new Table());
+	public Table save(Table t) {
+		return tableRepo.save(t);
 		
 	}
 
@@ -31,6 +32,7 @@ public class TableService {
 		for (Table t : tableRepo.findAll()) {
 			tables.add(t);
 		}
+		SortUtil.sortByStatus(tables);
 		return tables;
 	}
 
