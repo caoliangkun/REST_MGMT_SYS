@@ -46,7 +46,7 @@ public class OrderItem {
 	private Date createdAt;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(name = "order_item_status", columnDefinition = "order_item_status varchar(225) default 'IN_ORDER")
+	@Column(name = "order_item_status", columnDefinition = "order_item_status varchar(225) default 'IN ORDER'")
 	private OrderItemStatus orderItemStatus;
 	
 	public OrderItem() {};

@@ -76,14 +76,16 @@ public class MainController {
 			Customer cust = (Customer) session.getAttribute("cust");
 			cust.setLogin(false);
 			customerService.saveCust(cust);
+			session.removeAttribute("cust");
 		} else if (session.getAttribute("user") != null) {
 			User user = (User) session.getAttribute("user");
 			user.setLogin(false);
 			userService.save(user);
+			session.removeAttribute("user");
 		}
-		session.removeAttribute("cust");
-		session.removeAttribute("person");
-		return "redirect:/login";
+		
+		
+		return "login";
 	}
 
 	@GetMapping(path = "/updateProfile")
