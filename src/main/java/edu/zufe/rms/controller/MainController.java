@@ -115,4 +115,9 @@ public class MainController {
 	public String toError() {
 		return "error";
 	}
+	
+	@GetMapping(path = "/hello")
+	public String hello() {
+		return "hello";
+	}
 }
