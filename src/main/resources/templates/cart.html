@@ -15,15 +15,15 @@
 <div>
     <span th:text="${'Your ID: ' + session.person.id}">id</span>
     <span th:text="${'Table ID: ' + session.cust.tableId}">id</span>
-    <a class="btn btn-secondary" href="tables.html" th:href="@{/showTables}">Choose Table</a>
+    <a class="btn btn-secondary" href="tables.html" th:href="@{/showTables}" th:text="#{cart.choose_table}">Choose Table</a>
 </div>
 <table class="table">
     <thead class="">
         <tr>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Quantity</td>
-            <td>Action</td>
+            <td th:text="#{cart.name}">Name</td>
+            <td th:text="#{cart.price}">Price</td>
+            <td th:text="#{cart.quantity}">Quantity</td>
+            <td th:text="#{cart.action}">Action</td>
         </tr>
     </thead>
     <tbody th:each="c : ${cart}">
@@ -34,7 +34,7 @@
             <td>
                 <form class="" action="deleteCartItem" method="get">
                     <input name="id" type="hidden" th:value="${c.id}">
-                    <button class="btn btn-primary" type="submit">Delete</button>
+                    <button class="btn btn-primary" type="submit" th:text="#{cart.delete}">Delete</button>
                 </form>
             </td>
         </tr>
@@ -44,12 +44,13 @@
     <div class="container" style="position: fixed; bottom: 0px">
         <div class="row">
             <div class="col-sm-7">
-                <span >Total price: RMB </span>
+                <span th:text="#{cart.total_price}">Total price</span>
+                <span>: RMB </span>
                 <span th:text="${total}">81</span>
             </div>
             <div class="col-sm-5">
 
-                <a class="btn btn-primary" href="saveOrder" onclick="check_table_id()">
+                <a class="btn btn-primary" href="saveOrder" onclick="check_table_id()" th:text="#{cart.check_out}">
                     Check out
                 </a>
             </div>

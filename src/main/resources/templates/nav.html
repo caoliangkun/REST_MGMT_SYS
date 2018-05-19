@@ -12,36 +12,36 @@
 <!-- navigation -->
 <div th:fragment="nav">
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.html">RMS</a>
+        <a class="navbar-brand" href="index.html" th:text="#{nav.logo}">RMS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navContent">
             <ul class="navbar-nav">
                 <li id="menu" class="nav-item">
-                    <a class="nav-link" href="menu.html" th:href="@{/menu}">Menu</a>
+                    <a class="nav-link" href="menu.html" th:href="@{/menu}" th:text="#{nav.menu}">Menu</a>
                 </li>
                 <li id="cart" class="nav-item">
-                    <a class="nav-link" href="cart.html" th:href="@{/cart}">Cart</a>
+                    <a class="nav-link" href="cart.html" th:href="@{/cart}" th:text="#{nav.cart}">Cart</a>
                 </li>
                 <li id="tables" class="nav-item">
-                    <a class="nav-link" href="tables.html" th:href="@{/showTables}">Tables</a>
+                    <a class="nav-link" href="tables.html" th:href="@{/showTables}" th:text="#{nav.tables}">Tables</a>
                 </li>
                 <li id="admin" class="nav-item"  onload="show()">
-                    <a class="nav-link" href="admin-index.html">Admin</a>
+                    <a class="nav-link" href="admin-index.html" th:text="#{nav.admin}">Admin</a>
                 </li>
                 <li id="orders" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Orders</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" th:text="#{nav.orders}">Orders</a>
                     <div class="dropdown-menu">
-                        <a href="orders_all.html" th:href="@{/allOrders}" class="dropdown-item">All Orders</a>
-                        <a href="orders_c.html" th:href="@{/orders_c}" class="dropdown-item"> Completed Orders</a>
-                        <a href="orders_nc.html" th:href="@{/orders_nc}" class="dropdown-item">Not Completed Orders</a>
+                        <a href="orders_all.html" th:href="@{/allOrders}" class="dropdown-item" th:text="#{nav.all_orders}">All Orders</a>
+                        <a href="orders_c.html" th:href="@{/orders_c}" class="dropdown-item" th:text="#{nav.completed_orders}"> Completed Orders</a>
+                        <a href="orders_nc.html" th:href="@{/orders_nc}" class="dropdown-item" th:text="#{nav.not_completed_orders}">Not Completed Orders</a>
                     </div>
                 </li>
                 <li id="mine" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Mine</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" th:text="#{nav.mine}">Mine</a>
                     <div class="dropdown-menu">
-                        <a id="profile" href="profile.html" th:href="@{/profile}" class="dropdown-item">Profile</a>
+                        <a id="profile" href="profile.html" th:href="@{/profile}" class="dropdown-item" th:text="#{nav.profile}">Profile</a>
                         <a href="#" class="dropdown-item"></a>
                         <a href="#" class="dropdown-item"></a>
                     </div>
@@ -49,9 +49,9 @@
 
             </ul>
             <span class="navbar-text actions">
-            <a id="login" role="button"  href="login.html" th:href="@{/login}" class="btn btn-primary action-button">Log In</a>
-            <a id="logout" href="login.html" th:href="@{/logout}" class="btn btn-primary action-button">Log Out</a>
-            <a id="sign_up" class="btn btn-primary action-button" role="button" href="register.html">
+            <a id="login" role="button"  href="login.html" th:href="@{/login}" class="btn btn-primary action-button" th:text="#{nav.login}">Log In</a>
+            <a id="logout" href="login.html" th:href="@{/logout}" class="btn btn-primary action-button" th:text="#{nav.logout}">Log Out</a>
+            <a id="sign_up" class="btn btn-primary action-button" role="button" href="register.html" th:text="#{nav.sign_up}">
                 Sign Up
             </a>
         </span>

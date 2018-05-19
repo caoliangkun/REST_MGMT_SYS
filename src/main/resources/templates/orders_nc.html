@@ -26,16 +26,16 @@
 <table class="table">
     <thead>
     <tr>
-        <td>
+        <td th:text="#{order.id}">
             ORDER ID
         </td>
-        <td>
+        <td th:text="#{order.total_price}">
             TOTAL PRICE
         </td>
-        <td>
+        <td th:text="#{order.time}">
             TIME
         </td>
-        <td>
+        <td th:text="#{order.status}">
             STATUS
         </td>
     </tr>
@@ -50,7 +50,7 @@
         <td>
             <form id="1" th:id="${order.id}" action="orders_nc.html" th:action="@{/pay_nc}">
                 <input name="id" type="text" value="1" th:value="${order.id}" style="display: none">
-                <button class="btn btn-primary" type="submit">
+                <button class="btn btn-primary" type="submit" th:text="#{order.pay}">
                     Pay
                 </button>
             </form>

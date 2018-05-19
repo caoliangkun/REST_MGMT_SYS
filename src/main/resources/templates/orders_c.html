@@ -26,16 +26,16 @@
 <table class="table">
     <thead>
     <tr>
-        <td>
+        <td th:text="#{order.id}">
             ORDER ID
         </td>
-        <td>
+        <td th:text="#{order.total_price}">
             TOTAL PRICE
         </td>
-        <td>
+        <td th:text="#{order.time}">
             TIME
         </td>
-        <td>
+        <td th:text="#{order.status}">
             STATUS
         </td>
     </tr>
@@ -49,7 +49,7 @@
         </td>
         <td th:text="${order.finished}" onload="paid(this)" style="display: none">true</td>
         <td>
-            <span>paid</span>
+            <span th:text="#{order.paid}">paid</span>
         </td>
     </tr>
     </tbody>

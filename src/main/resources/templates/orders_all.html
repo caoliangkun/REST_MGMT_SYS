@@ -26,16 +26,16 @@
     <table class="table">
         <thead>
             <tr>
-                <td>
+                <td th:text="#{order.id}">
                     ORDER ID
                 </td>
-                <td>
+                <td th:text="#{order.total_price}">
                     TOTAL PRICE
                 </td>
-                <td>
+                <td th:text="#{order.time}">
                     TIME
                 </td>
-                <td>
+                <td th:text="#{order.status}">
                     STATUS
                 </td>
             </tr>
@@ -50,12 +50,12 @@
                 <td th:text="${order.finished}" onload="paid(this)" style="display: none">true</td>
                 <td th:switch="${order.finished}">
                     <div th:case="true">
-                        <span>paid</span>
+                        <span th:text="#{order.paid}">paid</span>
                     </div>
                     <div th:case="*">
                         <form id="1" th:id="${order.id}" action="orders_all.html" th:action="@{/pay}">
                             <input name="id" type="text" value="1" th:value="${order.id}" style="display: none">
-                            <button class="btn btn-primary" type="submit" >
+                            <button class="btn btn-primary" type="submit" th:text="#{order.pay}" >
                                 Pay
                             </button>
                         </form>

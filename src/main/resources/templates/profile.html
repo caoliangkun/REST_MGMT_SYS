@@ -25,30 +25,30 @@
         </div>
 
 
-        <label>Name</label>
+        <label th:text="#{profile.name}">Name</label>
         <input class="form-control" type="text" name="name" th:value="${cust.name}">
 
-        <label>Sex</label>
+        <label th:text="#{profile.sex}">Sex</label>
         <input class="form-control" type="text" name="sex" th:value="${cust.sex}">
 
-        <label>Address</label>
+        <label th:text="#{profile.address}">Address</label>
         <input class="form-control" type="text" name="firstname">
 
-        <label>Phone</label>
+        <label th:text="#{profile.phone}">Phone</label>
         <input th:value="${cust.phone}" class="form-control" type="tel" name="phone" required=""
                placeholder="Phone number" maxlength="11" minlength="11" pattern="\d{11}">
 
-        <label>Password</label>
+        <label th:text="#{profile.password}">Password</label>
         <input id="pwd" th:value="${cust.password}" class="form-control" type="password" placeholder="password"
                name="password" autocomplete="off">
 
-        <label>Confirm Password</label>
+        <label th:text="#{profile.confirm_password}">Confirm Password</label>
         <input id="rpwd" th:value="${cust.password}" class="form-control" type="password" placeholder="repeate password"
                name="confirmPswd"
                autocomplete="off" onchange="verify()">
 
-        <button class="btn btn-primary form-btn" type="submit">SAVE</button>
-        <button class="btn btn-danger form-btn" type="reset">CANCEL</button>
+        <button class="btn btn-primary form-btn" type="submit" th:text="#{profile.save}">SAVE</button>
+        <button class="btn btn-danger form-btn" type="reset" th:text="#{profile.cancel}">CANCEL</button>
 </form>
 
 <script>

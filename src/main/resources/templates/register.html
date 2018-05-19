@@ -19,7 +19,7 @@
 <div class="register-photo">
     <div class="form-container" style="width: 500px">
             <form action="register" method="post">
-                <h2 class="text-center">
+                <h2 class="text-center" th:text="#{register.headline}">
                     <strong>Create</strong>
                     an account.
                 </h2>
@@ -44,16 +44,16 @@
                         <label class="form-check-label">
                             <input class="form-check-input" type="checkbox" name="register_agree" value="yes"
                                    required="">
-                            I agree to the license terms.
+                            <span th:text="#{register.agree}">I agree to the license terms.</span>
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-block" type="submit">
+                    <button class="btn btn-primary btn-block" type="submit" th:text="#{register.sign_up}">
                         Sign Up
                     </button>
                 </div>
-                <a href="login.html" th:href="@{/login}" class="already">
+                <a href="login.html" th:href="@{/login}" class="already" th:text="#{register.to_login}">
                     You already have an account? Login here.
                 </a>
             </form>

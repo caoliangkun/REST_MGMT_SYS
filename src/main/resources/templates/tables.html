@@ -14,8 +14,8 @@
 <div>
     <span>
         <span th:text="${'Table ID: ' + session.cust.tableId}">id</span>
-        <a class="btn btn-secondary" href="tables.html" th:href="@{/clear}">Choose Again</a>
-        <a class="btn btn-secondary" href="cart.html" th:href="@{/cart}">cart</a>
+        <a class="btn btn-secondary" href="tables.html" th:href="@{/clear}" th:text="#{table.choose_again}">Choose Again</a>
+        <a class="btn btn-secondary" href="cart.html" th:href="@{/cart}" th:text="#{table.cart}">cart</a>
     </span>
 </div>
 
@@ -23,16 +23,16 @@
     <table class="table">
         <thead>
         <tr>
-            <td>
+            <td th:text="#{table.id}">
                 Id
             </td>
-            <td>
+            <td th:text="#{table.capacity}">
                 Capacity
             </td>
-            <td>
+            <td th:text="#{table.status}">
                 Status
             </td>
-            <td th:if="${session.cust.tableId == 0}">
+            <td th:if="${session.cust.tableId == 0}" th:text="#{table.action}">
                 Action
             </td>
         </tr>
@@ -51,7 +51,7 @@
             <td th:if="${session.cust.tableId} == 0">
                 <form th:if="${#strings.toString(t.tableStatus)} == 'TO_USE'" action="tables.html" th:action="@{selectTable}">
                     <input name="id" type="text" value="1" th:value="${t.id}" style="display: none">
-                    <button class="btn btn-primary">Use</button>
+                    <button class="btn btn-primary" th:text="#{table.use}">Use</button>
                 </form>
             </td>
         </tr>

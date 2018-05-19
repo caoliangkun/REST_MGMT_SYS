@@ -58,7 +58,7 @@
             <div
                     class="col-12 col-md-12 offset-xl-0 align-content-center align-self-center">
                 <a href="about.html" th:href="@{/about}">
-						<span class="flex-column align-items-center align-content-center">
+						<span class="flex-column align-items-center align-content-center" th:text="#{store_name}">
 							Riverland Hokkien Chinese Restaurant
 						</span>
                     <i class="icon ion-android-playstore float-right"></i>
@@ -66,18 +66,18 @@
             </div>
             <div class="col-12 col-md-12 offset-xl-0 align-self-center">
                 <a href="menu.html" th:href="@{/menu}">
-                    <span>ORDER NOW</span>
+                    <span th:text="#{index.order_now}">ORDER NOW</span>
                     <i class="icon ion-fork float-right"></i>
                 </a>
             </div>
             <div class="col-12 col-md-12 offset-xl-0 align-self-center">
                 <a href="favorite.html" th:href="@{/favorite}">
-                    <span>MY FAVORITE</span>
+                    <span th:text="#{index.favorite}">MY FAVORITE</span>
                     <i class="icon ion-star float-right"></i>
                 </a>
             </div>
             <div class="col-12 col-md-12 offset-xl-0 align-self-center">
-                <a href="#"><span>PROMOTION</span><i
+                <a href="#"><span th:text="#{index.promotion}">PROMOTION</span><i
                         class="fa fa-ticket float-right"></i></a>
             </div>
             <div class="col-12 col-md-12 offset-xl-0"></div>
@@ -85,12 +85,31 @@
         </div>
     </div>
 </div>
+<div>
+<span th:text="#{lang.change}"></span>:
+<select id="locales" class="">
+    <option value="" th:text="#{lang.change}"></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="zh" th:text="#{lang.zh}"></option>
+</select>
+</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         th:src="@{/js/popper.min.js}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption !== ''){
+                    window.location.replace('index.html?lang=' + selectedOption);
+                }
+            });
+        });
+</script>
 </body>
 
 </html>

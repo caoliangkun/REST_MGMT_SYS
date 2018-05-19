@@ -51,9 +51,9 @@
     </ol>
 </div>
 <ul class="nav nav-tabs sticky-top nav-pills bg-white row" id="scrollspy" style="background-color:rgba(255,255,255,0.24);">
-    <li class="nav-item col-4"><a class="nav-link active" href="#c">Chinese Dishes</a></li>
-    <li class="nav-item col-4"><a class="nav-link" href="#n">Noodle</a></li>
-    <li class="nav-item col-4"><a class="nav-link" href="#d">Drink</a></li>
+    <li class="nav-item col-4"><a class="nav-link active" href="#c" th:text="#{menu.chinese_dishes}">Chinese Dishes</a></li>
+    <li class="nav-item col-4"><a class="nav-link" href="#n" th:text="#{menu.noodle}">Noodle</a></li>
+    <li class="nav-item col-4"><a class="nav-link" href="#d" th:text="#{menu.drink}">Drink</a></li>
 </ul>
 
 
@@ -77,7 +77,7 @@
             <div class="col-3">
                 <form class="" action="updateCart" method="get">
                     <input name="id" type="hidden" th:value="${c.id}">
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    <button class="btn btn-primary" type="submit" th:text="#{menu.add}">Add</button>
                 </form>
             </div>
         </div>
@@ -103,7 +103,7 @@
             <div class="col-3">
                 <form class="" action="updateCart" method="get">
                     <input name="id" type="hidden" th:value="${n.id}">
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    <button class="btn btn-primary" type="submit" th:text="#{menu.add}">Add</button>
                 </form>
             </div>
         </div>
@@ -129,7 +129,7 @@
             <div class="col-3">
                 <form class="" action="updateCart" method="get">
                     <input name="id" type="hidden" th:value="${d.id}">
-                    <button class="btn btn-primary" type="submit">Add</button>
+                    <button class="btn btn-primary" type="submit" th:text="#{menu.add}">Add</button>
                 </form>
             </div>
         </div>

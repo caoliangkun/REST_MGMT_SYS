@@ -24,27 +24,45 @@
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             <div class="form-group"><input class="form-control" type="tel" name="phone" required="" placeholder="Phone number" maxlength="11" minlength="11" pattern="\d{11}" autocomplete="on" inputmode="tel"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" th:text="#{login.login}">Log In</button></div>
 
 
 
 
             <div class="form-group">
-                <a class="btn btn-primary btn-block" type="button" href="register.html" th:href="@{/register.html}">
+                <a class="btn btn-primary btn-block" type="button" href="register.html" th:href="@{/register.html}" th:text="#{login.sign_up}">
                     Sign Up
                 </a>
             </div>
-            <a class="forgot" href="index.html" th:href="@{/index.html}">
+            <a class="forgot" href="index.html" th:href="@{/index.html}" th:text="#{login.guest_login}">
                 Guest Log In
             </a>
-            <a href="#" class="forgot">Forgot your email or password?</a>
+            <a href="#" class="forgot" th:text="#{login.forgot}">Forgot your email or password?</a>
+            <div class="d-flex justify-content-center ">
+                <select id="locales" class="navbar-toggler text-white">
+                    <option value="" th:text="#{lang.change}"></option>
+                    <option value="en" th:text="#{lang.eng}"></option>
+                    <option value="zh" th:text="#{lang.zh}"></option>
+                </select>
+            </div>
         </form>
 
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
     <script src="/../restt_mgmt_sys/src/main/resources/static/js/script.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#locales").change(function () {
+                var selectedOption = $('#locales').val();
+                if (selectedOption !== ''){
+                    window.location.replace('login?lang=' + selectedOption);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
