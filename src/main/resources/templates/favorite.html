@@ -14,12 +14,12 @@
 <table class="table">
     <thead>
     <tr>
-        <th>
+        <th th:text="#{favorite.image}">
             Image
         </th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Action</th>
+        <th th:text="#{favorite.name}">Name</th>
+        <th th:text="#{favorite.price}">Price</th>
+        <th th:text="#{favorite.action}">Action</th>
     </tr>
     </thead>
     <tbody th:each="f : ${favorites}">
@@ -49,20 +49,20 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" th:text="#{favorite.opt}">
                     Opt
                 </button>
                 <div class="dropdown-menu">
                     <div class="dropdown-item">
                         <form action="favorite.html" th:action="@{deleteFavorite}" class="justify-content-end">
                             <input name="id" value="1" th:value="${f.id}" style="display: none">
-                            <button type="submit" class="btn btn-primary">Delete</button>
+                            <button type="submit" class="btn btn-primary" th:text="#{favorite.delete}">Delete</button>
                         </form>
                     </div>
                     <div class="dropdown-item">
                         <form action="favorite.html" th:action="@{/favoriteToCart}" class="justify-content-start">
                             <input name="id" value="1" th:value="${f.food.id}" style="display: none">
-                            <button type="submit" class="btn btn-primary">Order</button>
+                            <button type="submit" class="btn btn-primary" th:text="#{favorite.order}">Order</button>
                         </form>
                     </div>
                 </div>
