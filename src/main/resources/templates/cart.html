@@ -62,7 +62,9 @@
     function check_table_id() {
         var table_id = [(${session.cust.tableId})];
         if (table_id == 0) {
-            alert("Please choose a table before you checkout!")
+            // alert("Please choose a table before you checkout!")
+            var alert_msg = '[(#{cart.alert})]';
+            alert(alert_msg);
         }
     }
 </script>
