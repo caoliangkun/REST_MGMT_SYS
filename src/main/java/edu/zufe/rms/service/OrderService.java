@@ -107,4 +107,19 @@ public class OrderService {
 			return null;
 	}
 
+	public List<Order> findByDate() {
+		List<Order> orders = new ArrayList<>();
+		Date date = new Date();
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		for(Order order : findAll()) {
+			Calendar cOrder = Calendar.getInstance();
+			cOrder.setTime(order.getUpdateAt());
+			if (cOrder.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cOrder.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cOrder.get(Calendar.DATE) == c.get(Calendar.DATE)) {
+				orders.add(order);
+			}
+		}
+		return orders;
+	}
+
 }

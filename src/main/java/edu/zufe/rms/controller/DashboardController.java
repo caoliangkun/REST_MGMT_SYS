@@ -40,10 +40,33 @@ public class DashboardController {
 		String paymentStatsJson = JSON.toJSONString(paymentStats);
 		modelAndView.addObject("incomeStats", paymentStatsJson);
 		
+		String numOfTodaysOrders = String.valueOf(getNumOfTodaysOrders());
+		String todaysIncome = String.valueOf(getTodaysIncome());
+		modelAndView.addObject("numOfTodaysOrders", numOfTodaysOrders);
+		modelAndView.addObject("todaysIncome", todaysIncome);
 		return modelAndView;
 	}
 	
 	
+
+	private int getNumOfTodaysOrders() {
+		List<Order> orders = orderService.findByDate();
+		int num = orders.size();
+		return num;
+	}
+
+
+
+	private double getTodaysIncome() {
+		List<Payment> payments = paymentService.findByDate();
+		double income = 0.0;
+		for (Payment pay : payments) {
+			income += pay.getAmount();
+		}
+		return income;
+	}
+
+
 
 	private OrderStats getOrderStats(String year) {
 		OrderStats orderStats = new OrderStats();

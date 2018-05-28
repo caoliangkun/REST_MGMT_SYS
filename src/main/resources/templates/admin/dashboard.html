@@ -16,6 +16,30 @@
 <!--<div style="display: none">-->
 <!--<span id="orderStats" th:text="${orderStats}">order stats</span>-->
 <!--</div>-->
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Today's Orders
+                </th>
+                <th>
+                    Today's Income
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${numOfTodaysOrders}">
+                    1
+                </td>
+                <td th:text="${todaysIncome}">
+                    1
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <form id="year" action="dashboard.html" th:action="dashboard">
      <button class="btn btn-primary" type="submit">Select Year</button>
     <select form="year" name="year" id="select">

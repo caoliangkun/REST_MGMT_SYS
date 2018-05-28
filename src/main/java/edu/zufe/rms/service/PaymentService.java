@@ -2,6 +2,7 @@ package edu.zufe.rms.service;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,20 @@ public class PaymentService {
 
 	public Payment save(Payment payment) {
 		return payRepo.save(payment);
+	}
+
+	public List<Payment> findByDate() {
+		List<Payment> payments = new ArrayList<>();
+		Date date = new Date();
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		for (Payment pay : findAll()) {
+			Calendar cPay = Calendar.getInstance();
+			cPay.setTime(pay.getPayAt());
+			if (cPay.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cPay.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cPay.get(Calendar.DATE) == c.get(Calendar.DATE))
+				payments.add(pay);
+				
+		}
+		return payments;
 	}
 }
