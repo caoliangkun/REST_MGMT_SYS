@@ -114,10 +114,13 @@ public class OrderService {
 		c.setTime(date);
 		for(Order order : findAll()) {
 			Calendar cOrder = Calendar.getInstance();
-			cOrder.setTime(order.getUpdateAt());
-			if (cOrder.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cOrder.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cOrder.get(Calendar.DATE) == c.get(Calendar.DATE)) {
-				orders.add(order);
+			if (order.getUpdateAt() != null) {
+				cOrder.setTime(order.getUpdateAt());
+				if (cOrder.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cOrder.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cOrder.get(Calendar.DATE) == c.get(Calendar.DATE)) {
+					orders.add(order);
+				}
 			}
+			
 		}
 		return orders;
 	}
