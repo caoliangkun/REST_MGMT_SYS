@@ -71,6 +71,8 @@ public class Food implements Serializable {
 	
 	@OneToMany(mappedBy = "food", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Favorite> favorites;
+	@Column(columnDefinition = "int default 0") 
+	private Long num;
 
 	public Food() {
 		super();
@@ -94,6 +96,36 @@ public class Food implements Serializable {
 
 	
 	
+	public Set<OrderItem> getOrderItems() {
+		return orderItems;
+	}
+
+
+	public void setOrderItems(Set<OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+
+	public Set<Favorite> getFavorites() {
+		return favorites;
+	}
+
+
+	public void setFavorites(Set<Favorite> favorites) {
+		this.favorites = favorites;
+	}
+
+
+	public Long getNum() {
+		return num;
+	}
+
+
+	public void setNum(Long num) {
+		this.num = num;
+	}
+
+
 	public Long getId() {
 		return id;
 	}

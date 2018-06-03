@@ -58,4 +58,18 @@ public class PaymentService {
 		}
 		return payments;
 	}
+
+	public List<Payment> findBySpecificDate(Date date) {
+		List<Payment> payments = new ArrayList<>();
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		for (Payment pay : findAll()) {
+			Calendar cPay = Calendar.getInstance();
+			cPay.setTime(pay.getPayAt());
+			if (cPay.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cPay.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cPay.get(Calendar.DATE) == c.get(Calendar.DATE))
+				payments.add(pay);
+				
+		}
+		return payments;
+	}
 }

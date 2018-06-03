@@ -58,6 +58,7 @@ public class CartItemController {
 			
 			
 		}
+//		foodService.numPlus(id);
 		return "redirect:menu";
 	}
 	

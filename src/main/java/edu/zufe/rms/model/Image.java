@@ -32,4 +32,50 @@ public class Image implements Serializable {
 	
 	@OneToOne(mappedBy = "img")
 	private Item item;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getImgName() {
+		return imgName;
+	}
+
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
+
+	public String getImgLocation() {
+		return imgLocation;
+	}
+
+	public void setImgLocation(String imgLocation) {
+		this.imgLocation = imgLocation;
+	}
+
+	public Food getFood() {
+		return food;
+	}
+
+	public void setFood(Food food) {
+		this.food = food;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }

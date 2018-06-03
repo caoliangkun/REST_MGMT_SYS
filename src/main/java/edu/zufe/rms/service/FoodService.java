@@ -26,6 +26,7 @@ public class FoodService {
 	
 	public Food save(String name, double price) {
 		Food food = new Food(name, price);
+		food.setNum(0L);
 		return foodRepo.save(food);
 	}
 	
@@ -35,6 +36,7 @@ public class FoodService {
 	
 	public Food save(String name, Double price, String applied, String foodType) {
 		Food food = new Food(name, price, applied, FoodType.valueOf(foodType));
+		food.setNum(0L);
 		return foodRepo.save(food);
 	}
 	
@@ -45,6 +47,16 @@ public class FoodService {
 			return f;
 		}
 		return null;
+	}
+
+	public void numPlus(Long id) {
+		Optional<Food> food = foodRepo.findById(id);
+		if (food.isPresent()) {
+			Food f = food.get();
+			f.setNum( f.getNum() + 1);
+		}
+		
+		
 	}
 
 	

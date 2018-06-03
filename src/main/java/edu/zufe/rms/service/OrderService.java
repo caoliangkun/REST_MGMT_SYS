@@ -125,4 +125,21 @@ public class OrderService {
 		return orders;
 	}
 
+	public List<Order> findBySpecificDate(Date date) {
+		List<Order> orders = new ArrayList<>();
+		Calendar c = Calendar.getInstance();
+		c.setTime(date);
+		for(Order order : findAll()) {
+			Calendar cOrder = Calendar.getInstance();
+			if (order.getUpdateAt() != null) {
+				cOrder.setTime(order.getUpdateAt());
+				if (cOrder.get(Calendar.YEAR) == c.get(Calendar.YEAR) && cOrder.get(Calendar.MONTH) == c.get(Calendar.MONTH) && cOrder.get(Calendar.DATE) == c.get(Calendar.DATE)) {
+					orders.add(order);
+				}
+			}
+			
+		}
+		return orders;
+	}
+
 }

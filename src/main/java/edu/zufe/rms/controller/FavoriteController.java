@@ -38,8 +38,11 @@ public class FavoriteController {
 
 		Food food = foodService.findById(Long.valueOf(id));
 		Favorite fvt = new Favorite(food, cust);
-		if (!fvtService.exsit(fvt))
+		if (!fvtService.exsit(fvt)) {
 			fvtService.save(fvt);
+//			foodService.numPlus(Long.valueOf(id));
+		}
+			
 		return "redirect:menu";
 	}
 	

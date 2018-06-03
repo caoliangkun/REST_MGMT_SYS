@@ -43,27 +43,7 @@ public class IndexController {
 
 	
 
-	@GetMapping(path = "/menu")
-	public String toMenu(Model model) {
-		List<Food> foods = foodService.findAll();
-		List<Food> chineseDishes = new ArrayList<>();
-		List<Food> noodle = new ArrayList<>();
-		List<Food> drink = new ArrayList<>();
-		for (Food food : foods) {
-			if (food.getFoodType().equals(FoodType.ChineseDish)) {
-				chineseDishes.add(food);
-			} else if (food.getFoodType().equals(FoodType.Noodle)) {
-				noodle.add(food);
-			} else if (food.getFoodType().equals(FoodType.Drink)) {
-				drink.add(food);
-			}
-		}
-		model.addAttribute("chineseDishes", chineseDishes);
-		model.addAttribute("noodle", noodle);
-		model.addAttribute("drink", drink);
-		model.addAttribute("foods", foodService.findAll());
-		return "menu";
-	}
+	
 
 	@GetMapping(path = "/orders.html")
 	public String toOrders() {

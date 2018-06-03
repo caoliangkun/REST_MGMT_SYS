@@ -1,13 +1,15 @@
 package edu.zufe.rms.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
@@ -47,7 +49,32 @@ public class DashboardController {
 		return modelAndView;
 	}
 	
+	@GetMapping(path = "query") 
+	public ModelAndView query(@RequestParam(name = "date") String date) throws ParseException {
+		System.out.println(date);
+		ModelAndView modelAndView = new ModelAndView("admin/query");
+		if (date == "") {
+			return modelAndView;
+		}
+		
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date d = df.parse(date);
+		String numOfOrders = String.valueOf(getSpecificDateOrders(d));
+		modelAndView.addObject("numOfOrders", numOfOrders);
+		String income = String.valueOf(getSpecificDateIncome(d));
+		modelAndView.addObject("income", income);
+		modelAndView.addObject("date", date);
+		return modelAndView;
+	}
+
 	
+
+	private int getSpecificDateOrders(Date d) {
+		List<Order> orders = orderService.findBySpecificDate(d);
+		
+		int num = orders.size();
+		return num;
+	}
 
 	private int getNumOfTodaysOrders() {
 		List<Order> orders = orderService.findByDate();
@@ -56,7 +83,14 @@ public class DashboardController {
 	}
 
 
-
+	private double getSpecificDateIncome(Date d) {
+		List<Payment> payments = paymentService.findBySpecificDate(d);
+		double income = 0.0;
+		for (Payment pay : payments) {
+			income += pay.getAmount();
+		}
+		return income;
+	}
 	private double getTodaysIncome() {
 		List<Payment> payments = paymentService.findByDate();
 		double income = 0.0;

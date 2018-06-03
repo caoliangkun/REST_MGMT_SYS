@@ -17,6 +17,7 @@ import edu.zufe.rms.model.Order;
 import edu.zufe.rms.model.OrderItem;
 import edu.zufe.rms.service.CartItemService;
 import edu.zufe.rms.service.CustomerService;
+import edu.zufe.rms.service.FoodService;
 import edu.zufe.rms.service.OrderItemService;
 import edu.zufe.rms.service.OrderService;
 
@@ -30,6 +31,8 @@ public class OrderController {
 	private OrderItemService orderItemService;
 	@Autowired 
 	private CustomerService custService;
+	@Autowired
+	private FoodService foodService;
 	
 	@Autowired
 	private edu.zufe.rms.service.TableService tableService;
@@ -60,6 +63,7 @@ public class OrderController {
 			orderItem.setCreatedAt(new Date());
 			orderItemService.save(orderItem);
 			addition += orderItem.getFood().getPrice() * orderItem.getQuantity() ;
+			foodService.numPlus(i.getFood().getId());
 		}
 		orderService.changeTotalPrice(addition, order);
 		// Delete the cart items 
