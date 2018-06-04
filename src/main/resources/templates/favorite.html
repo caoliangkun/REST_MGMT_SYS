@@ -25,7 +25,7 @@
     <tbody th:each="f : ${favorites}">
     <tr>
         <td>
-            <img src="" alt="food img">
+            <img src="" th:src="${f.food.img != null} ? ${f.food.img.imgLocation} : '/img/foodImgs/img_missing.jpg'" alt="food img" style="height: 50px; width: 50px">
         </td>
         <td th:text="${f.food.name}">
             Beef Noodle

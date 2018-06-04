@@ -40,6 +40,19 @@
         </tbody>
     </table>
 </div>
+<div>
+    <p>The most popular 5 dishes</p>
+    <table class="table">
+
+        <tr>
+        <td th:text="${one}">food name</td>
+        <td th:text="${two}">food name</td>
+        <td th:text="${three}">food name</td>
+        <td th:text="${four}">food name</td>
+        <td th:text="${five}">food name</td>
+        </tr>
+    </table>
+</div>
 <form id="year" action="dashboard.html" th:action="dashboard">
      <button class="btn btn-primary" type="submit">Select Year</button>
     <select form="year" name="year" id="select">

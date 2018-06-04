@@ -36,6 +36,16 @@ public class MenuController {
 		model.addAttribute("noodle", noodle);
 		model.addAttribute("drink", drink);
 		model.addAttribute("foods", foodService.findAll());
+		
+		List<Food> hotFoods = new ArrayList<>();
+		int v = 5;
+		for (Food f : foods) {
+			hotFoods.add(f);
+			v--;
+			if (v == 0) 
+				break;
+		}
+		model.addAttribute("hotFoods", hotFoods);
 		return "menu";
 	}
 }

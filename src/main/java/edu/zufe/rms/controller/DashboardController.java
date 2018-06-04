@@ -54,6 +54,21 @@ public class DashboardController {
 		String todaysIncome = String.valueOf(getTodaysIncome());
 		modelAndView.addObject("numOfTodaysOrders", numOfTodaysOrders);
 		modelAndView.addObject("todaysIncome", todaysIncome);
+		
+		List<Food> foods = foodService.findAll();
+		List<Food> rankedFoods = new ArrayList<>();
+		int v = 5;
+		for (Food f : foods) {
+			rankedFoods.add(f);
+			v--;
+			if (v == 0) 
+				break;
+		}
+		modelAndView.addObject("one", rankedFoods.get(0).getName());
+		modelAndView.addObject("two", rankedFoods.get(1).getName());
+		modelAndView.addObject("three", rankedFoods.get(2).getName());
+		modelAndView.addObject("four", rankedFoods.get(3).getName());
+		modelAndView.addObject("five", rankedFoods.get(4).getName());
 		return modelAndView;
 	}
 	
