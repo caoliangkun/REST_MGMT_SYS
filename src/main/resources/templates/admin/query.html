@@ -41,5 +41,192 @@
         </tbody>
     </table>
 </div>
+<div>
+    <form class="form-control" action="query.html" th:action="@{queryOrderById}">
+        <label>Order Id:</label>
+        <input name="id" type="text" class="input-group-sm" th:value="${orderId}">
+        <button type="submit" class="btn btn-primary">Query</button>
+    </form>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Order Id
+                </th>
+                <th>
+                    Total Price
+                </th>
+                <th>
+                    Customer Id
+                </th>
+                <th>
+                    Time
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${orderId}">
+                    1
+                </td>
+                <td th:text="${totalPrice}">
+                    1
+                </td>
+                <td th:text="${customerId}">
+                    1
+                </td>
+                <td th:text="${time}">
+                    2018-05-01
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <form class="form-control" action="query.html" th:action="@{queryPaymentById}">
+        <label>Payment Id:</label>
+        <input id="payInput" name="id" type="text" class="input-group-sm">
+        <button type="button" class="btn btn-primary" onclick="loadPayment()">Query</button>
+    </form>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Payment Id
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Pay At
+                </th>
+                <th>
+                    Pay Method
+                </th>
+                <th>
+                    Customer Id
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="id">
+
+                </td>
+                <td id="amount">
+
+                </td>
+                <td id="payAt">
+
+                </td>
+                <td id="paymentMethod">
+
+                </td>
+                <td id="customer">
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+    <form class="form-control" action="query.html" th:action="@{foodRank}">
+        <label>Food Rank: </label>
+        <input id="volume" name="volume" type="text" class="input-group-sm" max="10" min="1" placeholder="Please input a number">
+        <button type="submit" class="btn btn-primary">Query</button>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Food ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    price
+                </th>
+                <th>
+                    Num
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="f : ${rankedFoods}">
+                <td th:text="${f.id}">
+                    1
+                </td>
+                <td th:text="${f.name}">
+                    SPRING ROLLS
+                </td>
+                <td th:text="${f.price}">
+                    10.5
+                </td>
+                <td th:text="${f.num}">
+                    52
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</script>
+<script>
+
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // var response = this.responseText;
+
+                var myJSON = this.responseText;
+                var myObj = JSON.parse(myJSON);
+                document.getElementById("demo1").innerHTML =
+                    myObj.id;
+                document.getElementById("demo2").innerHTML =
+                    myObj.amount;
+                document.getElementById("demo3").innerHTML =
+                    myObj.payAt;
+            }
+        };
+        xhttp.open("GET", "ajax", true);
+        xhttp.send();
+    }
+</script>
+
+<script>
+
+    function loadPayment() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                var myJSON = this.responseText;
+                var myObj = JSON.parse(myJSON);
+                document.getElementById("id").innerHTML =
+                    myObj.id;
+                document.getElementById("amount").innerHTML =
+                    myObj.amount;
+                document.getElementById("payAt").innerHTML =
+                    myObj.payAt;
+                document.getElementById("paymentMethod").innerHTML =
+                    myObj.paymentMethod;
+                document.getElementById("customer").innerHTML =
+                    myObj.customer;
+                document.getElementById("payInput").value =
+                    myObj.id;
+            }
+        };
+        var id = document.getElementById("payInput").value;
+        xhttp.open("GET", "queryPaymentById?id=" + id, true);
+        xhttp.send();
+    }
+</script>
 </body>
 </html>

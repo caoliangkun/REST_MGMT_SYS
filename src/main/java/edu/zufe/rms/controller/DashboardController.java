@@ -2,22 +2,27 @@ package edu.zufe.rms.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSON;
 
+import edu.zufe.rms.model.Food;
 import edu.zufe.rms.model.Order;
 import edu.zufe.rms.model.OrderStats;
 import edu.zufe.rms.model.Payment;
 import edu.zufe.rms.model.PaymentStats;
+import edu.zufe.rms.service.FoodService;
 import edu.zufe.rms.service.OrderService;
 import edu.zufe.rms.service.PaymentService;
 
@@ -28,6 +33,9 @@ public class DashboardController {
 	
 	@Autowired
 	private PaymentService paymentService;
+	
+	@Autowired
+	private FoodService foodService;
 
 	@GetMapping(path = "/dashboard")
 	public ModelAndView dashboard(@RequestParam(name = "year", required = false, defaultValue = "2018") String year) {
@@ -49,7 +57,7 @@ public class DashboardController {
 		return modelAndView;
 	}
 	
-	@GetMapping(path = "query") 
+	@GetMapping(path = "/query") 
 	public ModelAndView query(@RequestParam(name = "date") String date) throws ParseException {
 		System.out.println(date);
 		ModelAndView modelAndView = new ModelAndView("admin/query");
@@ -67,7 +75,46 @@ public class DashboardController {
 		return modelAndView;
 	}
 
+	@GetMapping(path = "/queryOrderById")
+	public String queryOrderById(@RequestParam(name = "id") String id, Model model) {
+		Order order = orderService.findById(id);
+		model.addAttribute("orderId", order.getId().toString());
+		model.addAttribute("totalPrice", order.getTotalPrice().toString());
+		model.addAttribute("customerId", order.getCustomer().getId().toString());
+		model.addAttribute("time", order.getUpdateAt());
+		return "admin/query";
+	}
 	
+	@ResponseBody
+	@GetMapping(path = "/queryPaymentById")
+	public String queryPaymentById(@RequestParam(name = "id") String id) {
+		Payment payment = paymentService.findById(Long.valueOf(id));
+		String paymentStr = JSON.toJSONString(payment);
+		System.out.println(paymentStr);
+		return paymentStr;
+	}
+	@ResponseBody
+	@GetMapping(path = "/ajax")
+	public String ajax(@RequestParam(name = "id") String id) {
+		Payment payment = paymentService.findById(Long.valueOf(id));
+		String paymentStr = JSON.toJSONString(payment);
+		return paymentStr;
+	}
+	
+	@GetMapping(path = "/foodRank")
+	public String foodRank(@RequestParam(name = "volume") String volume, Model model) {
+		List<Food> foods = foodService.findAll();
+		List<Food> rankedFoods = new ArrayList<>();
+		int v = Integer.valueOf(volume);
+		for (Food f : foods) {
+			rankedFoods.add(f);
+			v--;
+			if (v == 0) 
+				break;
+		}
+		model.addAttribute("rankedFoods", rankedFoods);
+		return "admin/query";
+	}
 
 	private int getSpecificDateOrders(Date d) {
 		List<Order> orders = orderService.findBySpecificDate(d);

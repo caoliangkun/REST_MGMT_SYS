@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import edu.zufe.rms.enums.FoodType;
 import edu.zufe.rms.model.Food;
 import edu.zufe.rms.repository.FoodRepository;
+import edu.zufe.rms.util.SortUtil;
 
 @Service
 public class FoodService {
@@ -21,6 +22,7 @@ public class FoodService {
 		for (Food food : foodRepo.findAll()) {
 			foods.add(food);
 		}
+		SortUtil.sortByNum(foods);
 		return foods;
 	}
 	
@@ -53,6 +55,9 @@ public class FoodService {
 		Optional<Food> food = foodRepo.findById(id);
 		if (food.isPresent()) {
 			Food f = food.get();
+			if (f.getNum() == null) {
+				f.setNum(0L);
+			}
 			f.setNum( f.getNum() + 1);
 		}
 		

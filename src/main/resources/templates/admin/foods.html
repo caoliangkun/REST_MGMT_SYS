@@ -17,6 +17,7 @@
         <td>Price</td>
         <td>Category</td>
         <td>Applied</td>
+        <td>Num</td>
         <td>Action</td>
     </tr>
     </thead>
@@ -27,6 +28,7 @@
         <td th:text="${food.price}">10.0</td>
         <td th:text="${food.foodType}">Soup</td>
         <td th:text="${food.applied}">Yes</td>
+        <td th:text="${food.num}">19</td>
         <td>
             <form class="" action="deleteFood" method="get">
                 <input name="id" type="hidden" th:value="${food.id}" >

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,5 +72,13 @@ public class PaymentService {
 				
 		}
 		return payments;
+	}
+
+	public Payment findById(Long id) {
+		Optional<Payment> payment = payRepo.findById(id);
+		if (payment.isPresent()) {
+			return payment.get();
+		}
+		return null;
 	}
 }
